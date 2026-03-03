@@ -114,7 +114,7 @@
                 Profil PUSIM
             </h2>
             <p class="text-gray-200 text-lg md:text-xl font-medium tracking-wide uppercase">
-                Pusat Teknologi Informasi dan Komunikasi
+                Pusat Teknologi Informasi dan Multimedia
             </p>
         </div>
     </section>

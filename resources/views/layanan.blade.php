@@ -91,10 +91,10 @@
 
         <div class="relative z-10 px-6 max-w-4xl">
             <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-                Layanan Teknologi
+                PUSIM (Pusat Teknologi Informasi dan Multimedia)
             </h2>
             <p class="text-gray-200 text-lg md:text-xl font-medium tracking-wide uppercase">
-                Mendukung Transformasi Digital Kampus
+                Universitas Merdeka Malang
             </p>
         </div>
     </section>

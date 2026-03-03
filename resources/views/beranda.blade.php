@@ -97,7 +97,7 @@
 
         <div class="relative z-10 px-6 max-w-4xl">
             <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
-                PUSIM (Pusat Teknologi Informasi dan Komunikasi)
+                PUSIM (Pusat Teknologi Informasi dan Multimedia)
             </h2>
             <h3 class="text-xl md:text-2xl font-medium text-gray-200 mb-6">
                 Universitas Merdeka Malang
