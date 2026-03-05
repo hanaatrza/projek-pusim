@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan PUSIM</title>
+    <title>Panduan PUSIM - UNMER Malang</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -27,6 +29,7 @@
             margin: 0 auto;
         }
 
+        /* NAVBAR */
         .navbar {
             background-color: #ffffff;
             padding: 15px 0;
@@ -34,6 +37,12 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
         }
 
         .nav-wrapper {
@@ -45,6 +54,8 @@
         .logo-area {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            color: inherit;
         }
 
         .logo {
@@ -72,10 +83,8 @@
             transition: 0.3s;
         }
 
-        .nav-links a.active {
-            color: #007bff;
-        }
-
+        /* Link Active logic */
+        .nav-links a.active,
         .nav-links a:hover {
             color: #007bff;
         }
@@ -103,18 +112,10 @@
             width: 160px;
         }
 
-        .search-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #777;
-            display: flex;
-            align-items: center;
-        }
-
+        /* HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('unmer.jpg') no-repeat center center/cover;
-            height: 450px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/unmer.jpg') no-repeat center center/cover;
+            height: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -123,14 +124,14 @@
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 10px;
             line-height: 1.2;
         }
 
         .hero-content h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 400;
             margin-bottom: 15px;
         }
@@ -141,6 +142,7 @@
             opacity: 0.9;
         }
 
+        /* MAIN CONTENT */
         .main-content {
             padding: 60px 0;
         }
@@ -162,293 +164,178 @@
         .instruction-card {
             background: #fff;
             padding: 30px;
-
             border-radius: 15px;
-
             border: 1px solid #e0e0e0;
-
             transition: all 0.3s ease;
-
             position: relative;
-
             overflow: hidden;
-
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-
         }
-
-
 
         .instruction-card:hover {
-
             transform: translateY(-5px);
-
             box-shadow: 0 10px 20px rgba(32, 109, 148, 0.1);
-
             border-color: #206d94;
-
         }
-
-
 
         .card-icon {
-
             font-size: 2rem;
-
             margin-bottom: 15px;
-
             display: block;
-
         }
-
-
 
         .instruction-card h3 {
-
             font-family: 'Montserrat', sans-serif;
-
             font-size: 1.1rem;
-
             margin-bottom: 10px;
-
             color: #206d94;
-
         }
-
-
 
         .instruction-card p {
-
             font-size: 0.95rem;
-
             color: #666;
-
             line-height: 1.5;
-
         }
-
-
 
         .card-number {
-
             position: absolute;
-
             top: -10px;
-
             right: -10px;
-
             background: #f1f3f5;
-
             width: 50px;
-
             height: 50px;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             font-weight: 700;
-
             color: #dee2e6;
-
             font-size: 1.5rem;
-
         }
-
-
 
         .highlight {
-
             color: #007bff;
-
             font-weight: 600;
-
         }
-
-
 
         footer {
-
             text-align: center;
-
-            padding: 20px 0;
-
-            background-color: #000;
-
+            padding: 25px 0;
+            background-color: #1a1a1a;
             color: white;
-
             margin-top: 40px;
+        }
 
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
         }
     </style>
-
 </head>
 
 <body>
 
-
-
     <nav class="navbar">
-
         <div class="container nav-wrapper">
-
-            <div class="logo-area">
-
-                <img src="OIP.jpeg" alt="Logo" class="logo">
-
-                <span class="brand-name">UNIVERSITAS MERDEKA MALANG</span>
-
-            </div>
+            <a href="{{ url('/') }}" class="logo-area">
+                <img src="/OIP.jpeg" alt="Logo" class="logo">
+                <span class="brand-name">UNMER MALANG</span>
+            </a>
 
             <ul class="nav-links">
-
-                <li><a href="beranda.html">Beranda</a></li>
-
-                <li><a href="profil.html">Profil</a></li>
-
-                <li><a href="layanan.html">Layanan</a></li>
-
-                <li><a href="#" class="active">Panduan</a></li>
-
-                <li><a href="contact.html">Contact</a></li>
-
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li><a href="{{ url('/profil') }}">Profil</a></li>
+                <li><a href="{{ url('/layanan') }}">Layanan</a></li>
+                <li><a href="{{ url('/panduan') }}" class="active">Panduan</a></li>
+                <li><a href="{{ url('/contact') }}">Contact</a></li>
             </ul>
 
-
-
             <div class="search-container">
-
-                <input type="text" placeholder="Cari..." class="search-input">
-
-                <button class="search-btn">
-
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-
-                        <circle cx="11" cy="11" r="8"></circle>
-
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-
-                    </svg>
-
-                </button>
-
+                <input type="text" id="guideSearch" placeholder="Cari panduan..." class="search-input">
             </div>
-
         </div>
-
     </nav>
 
-
-
     <header class="hero">
-
         <div class="hero-content">
-
-            <h1>PUSIM (Pusat Teknologi Informasi dan Komunikasi)</h1>
-
-            <h2>Universitas Merdeka Malang</h2>
-
-            <p>Transformasi Digital dan Layanan Teknologi Informasi Terpadu.</p>
-
+            <h1>PUSIM UNMER Malang</h1>
+            <h2>Pusat Teknologi Informasi dan Multimedia</h2>
+            <p>Solusi Transformasi Digital Terpadu.</p>
         </div>
-
     </header>
 
-
-
     <main class="container main-content">
-
         <p class="content-text">
-
-            Pada halaman panduan ini menyajikan berbagai sumber daya informasi untuk memudahkan sivitas akademika dalam
-            memanfaatkan teknologi kampus, seperti beberapa panduan yang merinci tata cara penggunaan sistem akademik
-            hingga pengelolaan akun mandiri.
-
+            Halaman panduan ini menyajikan berbagai sumber daya informasi untuk memudahkan sivitas akademika dalam
+            memanfaatkan teknologi kampus.
         </p>
-
-
-
-        <p class="content-text">
-
-            Kami menyediakan instruksi lengkap untuk mendukung aktivitas perkuliahan anda, seperti beberapa panduan yang
-            membahas tentang:
-
-        </p>
-
-
 
         <div class="instruction-grid">
-
             <div class="instruction-card">
-
                 <div class="card-number">01</div>
-
                 <span class="card-icon">📧</span>
-
                 <h3>Aktivasi Email Institusi</h3>
-
                 <p>Panduan lengkap tata cara aktivasi email resmi UNMER untuk pertama kali bagi mahasiswa baru dan
                     dosen.</p>
-
             </div>
-
-
 
             <div class="instruction-card">
-
                 <div class="card-number">02</div>
-
                 <span class="card-icon">📚</span>
-
                 <h3>Akses Materi & Tugas</h3>
-
                 <p>Langkah-langkah praktis mengakses platform pembelajaran, mengunduh materi kuliah, dan mengirimkan
-                    tugas tepat waktu.</p>
-
+                    tugas.</p>
             </div>
 
+            <div class="instruction-card">
+                <div class="card-number">03</div>
+                <span class="card-icon">🔑</span>
+                <h3>Lupa Password SSO</h3>
+                <p>Prosedur reset kata sandi mandiri untuk layanan Single Sign-On (SSO) universitas.</p>
+            </div>
         </div>
 
-
-
         <p class="content-text">
-
-            Apabila anda mengalami kendala saat mengakses layanan digital kami, silahkan pelajari solusi cepat yang
-            tersedia seperti beberapa panduan yang menjelaskan cara mengatasi <span class="highlight">lupa
-                password</span>, sinkronisasi akun <span class="highlight">SSO</span>, hingga panduan pengaturan koneksi
-            <span class="highlight">WI-FI</span> di area kampus.
-
+            Optimalkan pengalaman digital Anda dengan mengikuti panduan teknis yang telah kami susun secara praktis,
+            termasuk keamanan data dan koneksi <span class="highlight">WI-FI</span> kampus.
         </p>
-
-
-
-        <p class="content-text">
-
-            Optimalkan pengalaman digital Anda di Universitas Merdeka Malang dengan mengikuti beberapa panduan yang
-            telah kami susun secara praktis, seperti panduan teknis penggunaan sistem informasi hingga tips keamanan
-            data pribadi.
-
-        </p>
-
     </main>
 
-
-
     <footer>
-
         <div class="container">
-
-            <p>Copyright Universitas Merdeka Malang &copy; 2026. All rights reserved.</p>
-
+            <p>Copyright &copy; 2026 Universitas Merdeka Malang. All rights reserved.</p>
         </div>
-
     </footer>
 
+    <script>
+        // Fitur Sticky Navbar
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('.navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Fitur Pencarian Real-time
+        const searchInput = document.getElementById('guideSearch');
+        searchInput.addEventListener('keyup', function () {
+            const term = searchInput.value.toLowerCase();
+            const cards = document.querySelectorAll('.instruction-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const desc = card.querySelector('p').innerText.toLowerCase();
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
