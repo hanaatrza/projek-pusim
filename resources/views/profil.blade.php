@@ -84,9 +84,8 @@
                 <a href="{{ url('/') }}" class="hover:text-unmerBlue transition-colors">Beranda</a>
                 <a href="{{ url('/profil') }}" class="text-unmerBlue border-b-2 border-unmerBlue pb-1">Profil</a>
                 <a href="{{ url('/layanan') }}" class="hover:text-unmerBlue transition-colors">Layanan</a>
-                <a href="#" class="hover:text-unmerBlue transition-colors">Sistem Informasi</a>
-                <a href="#" class="hover:text-unmerBlue transition-colors">Panduan</a>
-                <a href="#" class="hover:text-unmerBlue transition-colors">Contact</a>
+                <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
+                <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
             </nav>
 
             <div class="relative hidden sm:block">
@@ -114,7 +113,7 @@
                 Profil PUSIM
             </h2>
             <p class="text-gray-200 text-lg md:text-xl font-medium tracking-wide uppercase">
-                Pusat Teknologi Informasi dan Komunikasi
+                Pusat Teknologi Informasi dan Multimedia
             </p>
         </div>
     </section>

@@ -64,9 +64,8 @@
                 <a href="{{ url('/') }}" class="hover:text-unmerBlue transition-colors">Beranda</a>
                 <a href="{{ url('/profil') }}" class="hover:text-unmerBlue transition-colors">Profil</a>
                 <a href="{{ url('/layanan') }}" class="text-unmerBlue border-b-2 border-unmerBlue pb-1">Layanan</a>
-                <a href="#" class="hover:text-unmerBlue transition-colors">Sistem Informasi</a>
-                <a href="#" class="hover:text-unmerBlue transition-colors">Panduan</a>
-                <a href="#" class="hover:text-unmerBlue transition-colors">Contact</a>
+                <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
+                <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
             </nav>
 
             <div class="relative hidden sm:block">

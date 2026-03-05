@@ -13,3 +13,11 @@ Route::get('/profil', function () {
 Route::get('/layanan', function () {
     return view('layanan');
 });
+
+Route::get('/panduan', function () {
+    return view('panduan');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});

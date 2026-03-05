@@ -58,12 +58,11 @@
             </div>
 
             <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-gray-600">
-                <a href="{{ url('/') }}" class="text-blue-500">Beranda</a>
+                <a href="{{ url('beranda') }}" class="text-blue-500">Beranda</a>
                 <a href="{{ url('/profil') }}" class="hover:text-blue-500 transition-colors">Profil</a>
                 <a href="{{ url('/layanan') }}" class="hover:text-blue-500 transition-colors">Layanan</a>
-                <a href="#" class="hover:text-blue-500 transition-colors">Sistem Informasi</a>
-                <a href="#" class="hover:text-blue-500 transition-colors">Panduan</a>
-                <a href="#" class="hover:text-blue-500 transition-colors">Contact</a>
+                <a href="{{ url('/panduan') }}" class="hover:text-blue-500 transition-colors">Panduan</a>
+                <a href="{{ url('/contact') }}" class="hover:text-blue-500 transition-colors">Contact</a>
             </nav>
 
             <div class="relative hidden sm:block">
@@ -95,7 +94,7 @@
 
         <div class="relative z-10 px-6 max-w-4xl">
             <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
-                PUSIM (Pusat Teknologi Informasi dan Komunikasi)
+                PUSIM (Pusat Teknologi Informasi dan Multimedia)
             </h2>
             <h3 class="text-xl md:text-2xl font-medium text-gray-200 mb-6">
                 Universitas Merdeka Malang

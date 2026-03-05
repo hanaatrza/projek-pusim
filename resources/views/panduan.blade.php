@@ -243,7 +243,7 @@
     <nav class="navbar">
         <div class="container nav-wrapper">
             <a href="{{ url('/') }}" class="logo-area">
-                <img src="/OIP.jpeg" alt="Logo" class="logo">
+                <img src="/logo-unmer.jpeg" alt="Logo" class="logo">
                 <span class="brand-name">UNMER MALANG</span>
             </a>
 
