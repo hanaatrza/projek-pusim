@@ -83,19 +83,41 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/unmer.jpg') no-repeat center center/cover;
-            height: 300px;
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /* overlay gelap supaya teks terlihat */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
             color: white;
             text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: bold;
             margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
         }
 
         .main-content {
@@ -154,7 +176,7 @@
             </ul>
         </div>
     </nav>
-    <header class="hero">
+    <header class="hero" style="background-image:url('{{ asset('unmer.jpeg') }}')">
         <div class="hero-content">
             <h1>HUBUNGI KAMI</h1>
             <p>Pusat Teknologi Informasi dan Multimedia (PUSIM)</p>

@@ -112,34 +112,42 @@
             width: 160px;
         }
 
-        /* HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/unmer.jpg') no-repeat center center/cover;
-            height: 400px;
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /* overlay gelap supaya teks terlihat */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
             color: white;
             text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: bold;
             margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .hero-content h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 15px;
         }
 
         .hero-content p {
-            font-size: 1.1rem;
-            font-style: italic;
-            opacity: 0.9;
+            font-size: 20px;
         }
 
         /* MAIN CONTENT */
@@ -243,7 +251,7 @@
     <nav class="navbar">
         <div class="container nav-wrapper">
             <a href="{{ url('/') }}" class="logo-area">
-                <img src="/logo-unmer.jpeg" alt="Logo" class="logo">
+                <img src="oip.jpeg" alt="Logo" class="logo">
                 <span class="brand-name">UNMER MALANG</span>
             </a>
 
@@ -260,15 +268,13 @@
             </div>
         </div>
     </nav>
-
-    <header class="hero">
+    <header class="hero" style="background-image:url('{{ asset('unmer.jpeg') }}')">
         <div class="hero-content">
-            <h1>PUSIM UNMER Malang</h1>
-            <h2>Pusat Teknologi Informasi dan Multimedia</h2>
+            <h1>PUSIM UNMER</h1>
+            <p>Pusat Teknologi Informasi dan Multimedia (PUSIM)</p>
             <p>Solusi Transformasi Digital Terpadu.</p>
         </div>
     </header>
-
     <main class="container main-content">
         <p class="content-text">
             Halaman panduan ini menyajikan berbagai sumber daya informasi untuk memudahkan sivitas akademika dalam
