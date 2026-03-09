@@ -254,7 +254,7 @@
         <div class="container nav-wrapper">
             <a href="{{ url('/') }}" class="logo-area">
                 <img src="oip.jpeg" alt="Logo" class="logo">
-                <span class="brand-name">UNMER MALANG</span>
+                <span class="brand-name">UNIVERSITAS MERDEKA MALANG</span>
             </a>
 
             <ul class="nav-links">

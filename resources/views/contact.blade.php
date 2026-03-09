@@ -146,7 +146,7 @@
         <div class="container nav-wrapper">
             <a href="{{ url('/') }}" class="logo-area">
                 <img src="/OIP.jpeg" alt="Logo" class="logo">
-                <span class="brand-name">UNMER MALANG</span>
+                <span class="brand-name">UNIVERSITAS MERDEKA MALANG</span>
             </a>
             <ul class="nav-links">
                 <li><a href="{{ url('/') }}">Beranda</a></li>
@@ -154,7 +154,6 @@
                 <li><a href="{{ url('/layanan') }}">Layanan</a></li>
                 <li><a href="{{ url('/panduan') }}">Panduan</a></li>
                 <li><a href="{{ url('/contact') }}" class="active">Contact</a></li>
-                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
             </ul>
         </div>
     </nav>
