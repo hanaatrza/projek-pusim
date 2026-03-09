@@ -51,7 +51,7 @@
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
 
             <div class="flex items-center space-x-3 flex-1">
-                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="" class="h-12 w-auto">
+                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-12 w-auto">
                 <h1
                     class="font-bold text-lg tracking-tight text-gray-800 uppercase hidden md:block border-l-2 border-gray-200 pl-3">
                     Universitas Merdeka Malang
@@ -65,36 +65,29 @@
                 <a href="{{ url('/layanan') }}" class="hover:text-blue-500 transition-colors">Layanan</a>
                 <a href="{{ url('/panduan') }}" class="hover:text-blue-500 transition-colors">Panduan</a>
                 <a href="{{ url('/contact') }}" class="hover:text-blue-500 transition-colors">Contact</a>
+                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800 ml-4">Login</a>
             </nav>
 
-            <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-gray-600">
-                <a href="{{ url('beranda') }}" class="text-blue-500">Beranda</a>
-                <a href="{{ url('/profil') }}" class="hover:text-blue-500 transition-colors">Profil</a>
-                <a href="{{ url('/layanan') }}" class="hover:text-blue-500 transition-colors">Layanan</a>
-                <a href="{{ url('/panduan') }}" class="hover:text-blue-500 transition-colors">Panduan</a>
-                <a href="{{ url('/contact') }}" class="hover:text-blue-500 transition-colors">Contact</a>
-                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
-            </nav>
-
-            <div class="relative hidden sm:block">
-                <input type="text" placeholder="Cari..."
-                    class="pl-4 pr-10 py-2 bg-gray-100 border-transparent rounded-full focus:bg-white focus:ring-2 focus:ring-blue-400 text-sm w-full transition-all outline-none">
-                <div class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
+            <div class="hidden sm:flex flex-1 justify-end">
+                <div class="relative w-48">
+                    <input type="text" placeholder="Cari..."
+                        class="pl-4 pr-10 py-2 bg-gray-100 border-transparent rounded-full focus:bg-white focus:ring-2 focus:ring-blue-400 text-sm w-full transition-all outline-none">
+                    <div class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <button class="lg:hidden p-2 text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </button>
+            <button class="lg:hidden p-2 text-gray-600 ml-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
     </header>
     <section class="relative min-h-[500px] flex items-center justify-center text-center">
