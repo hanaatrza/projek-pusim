@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact PUSIM - UNMER Malang</title>
+
+    <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
+
     <link href="" rel="stylesheet">
     <style>
         * {
@@ -83,41 +86,19 @@
         }
 
         .hero {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/unmer.jpg') no-repeat center center/cover;
+            height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        /* overlay gelap supaya teks terlihat */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-content {
-            position: relative;
             color: white;
             text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 10px;
-        }
-
-        .hero-content p {
-            font-size: 20px;
         }
 
         .main-content {
@@ -173,10 +154,11 @@
                 <li><a href="{{ url('/layanan') }}">Layanan</a></li>
                 <li><a href="{{ url('/panduan') }}">Panduan</a></li>
                 <li><a href="{{ url('/contact') }}" class="active">Contact</a></li>
+                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
             </ul>
         </div>
     </nav>
-    <header class="hero" style="background-image:url('{{ asset('unmer.jpeg') }}')">
+    <header class="hero">
         <div class="hero-content">
             <h1>HUBUNGI KAMI</h1>
             <p>Pusat Teknologi Informasi dan Multimedia (PUSIM)</p>
