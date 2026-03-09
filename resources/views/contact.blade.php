@@ -29,15 +29,116 @@
     <style>
         .hero-overlay {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-        }
 
-        .info-card {
-            transition: all 0.3s ease;
-        }
+            <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png"><link href="" rel="stylesheet"><style>* {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        .info-card:hover {
-            transform: translateX(10px);
-        }
+            body {
+                font-family: 'Open Sans', sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background-color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .container {
+                width: 90%;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            .navbar {
+                background-color: #ffffff;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-area {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .logo {
+                height: 45px;
+                margin-right: 15px;
+            }
+
+            .brand-name {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 25px;
+                list-style: none;
+            }
+
+            .nav-links a {
+                color: #555;
+                font-size: 14px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .nav-links a.active,
+            .nav-links a:hover {
+                color: #007bff;
+            }
+
+            .hero {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/unmer.jpg') no-repeat center center/cover;
+                height: 300px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            .main-content {
+                flex: 1;
+                padding: 60px 0;
+            }
+
+            .contact-section {
+                max-width: 700px;
+                margin: 0 auto;
+                text-align: center;
+                >>>>>>>cf2cd596883ab84a5ecb9e968f83a0fd43e342e9
+            }
+
+            .info-card {
+                transition: all 0.3s ease;
+            }
+
+            .info-card:hover {
+                transform: translateX(10px);
+            }
     </style>
 </head>
 
@@ -76,50 +177,73 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
 
-    <section class="relative h-[400px] flex items-center justify-center text-center">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('unmer.jpeg') }}');">
-            <div class="absolute inset-0 hero-overlay"></div>
-        </div>
-        <div class="relative z-10 text-white px-6">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-2 uppercase">HUBUNGI KAMI</h1>
-            <p class="text-xl opacity-90">Pusat Teknologi Informasi dan Multimedia (PUSIM)</p>
-        </div>
-    </section>
+            <body>
+                <nav class="navbar">
+                    <div class="container nav-wrapper">
+                        <a href="{{ url('/') }}" class="logo-area">
+                            <img src="/OIP.jpeg" alt="Logo" class="logo">
+                            <span class="brand-name">UNIVERSITAS MERDEKA MALANG</span>
+                        </a>
+                        <ul class="nav-links">
+                            <li><a href="{{ url('/') }}">Beranda</a></li>
+                            <li><a href="{{ url('/profil') }}">Profil</a></li>
+                            <li><a href="{{ url('/layanan') }}">Layanan</a></li>
+                            <li><a href="{{ url('/panduan') }}">Panduan</a></li>
+                            <li><a href="{{ url('/contact') }}" class="active">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <header class="hero">
+                    <div class="hero-content">
+                        <h1>HUBUNGI KAMI</h1>
+                        <p>Pusat Teknologi Informasi dan Multimedia (PUSIM)</p>
+                    </div>
+                </header>
 
-    <main class="flex-grow py-16 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <h2 class="text-3xl font-bold text-center mb-12 text-unmerBlue">Informasi Kontak</h2>
+                <section class="relative h-[400px] flex items-center justify-center text-center">
+                    <div class="absolute inset-0 bg-cover bg-center"
+                        style="background-image: url('{{ asset('unmer.jpeg') }}');">
+                        <div class="absolute inset-0 hero-overlay"></div>
+                    </div>
+                    <div class="relative z-10 text-white px-6">
+                        <h1 class="text-4xl md:text-6xl font-extrabold mb-2 uppercase">HUBUNGI KAMI</h1>
+                        <p class="text-xl opacity-90">Pusat Teknologi Informasi dan Multimedia (PUSIM)</p>
+                    </div>
+                </section>
 
-            <div class="space-y-6">
-                <div class="info-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-unmerBlue">
-                    <strong class="text-xs uppercase tracking-widest text-unmerBlue">Alamat</strong>
-                    <p class="text-lg text-gray-700 mt-1">Gedung Rektorat Lt. 1, Universitas Merdeka Malang</p>
-                </div>
+                <main class="flex-grow py-16 bg-gray-50">
+                    <div class="container mx-auto px-4 max-w-3xl">
+                        <h2 class="text-3xl font-bold text-center mb-12 text-unmerBlue">Informasi Kontak</h2>
 
-                <div class="info-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-unmerBlue">
-                    <strong class="text-xs uppercase tracking-widest text-unmerBlue">Telepon</strong>
-                    <p class="text-lg text-gray-700 mt-1">0341-568395</p>
-                </div>
+                        <div class="space-y-6">
+                            <div class="info-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-unmerBlue">
+                                <strong class="text-xs uppercase tracking-widest text-unmerBlue">Alamat</strong>
+                                <p class="text-lg text-gray-700 mt-1">Gedung Rektorat Lt. 1, Universitas Merdeka Malang
+                                </p>
+                            </div>
 
-                <div class="info-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-unmerBlue">
-                    <strong class="text-xs uppercase tracking-widest text-unmerBlue">Email Support</strong>
-                    <p class="text-lg text-gray-700 mt-1">pusim@unmer.ac.id</p>
-                </div>
-            </div>
-        </div>
-    </main>
+                            <div class="info-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-unmerBlue">
+                                <strong class="text-xs uppercase tracking-widest text-unmerBlue">Telepon</strong>
+                                <p class="text-lg text-gray-700 mt-1">0341-568395</p>
+                            </div>
 
-    <footer class="bg-black py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-white text-sm opacity-80">
-                Copyright Universitas Merdeka Malang &copy; 2026. All rights reserved.
-            </p>
-        </div>
-    </footer>
+                            <div class="info-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-unmerBlue">
+                                <strong class="text-xs uppercase tracking-widest text-unmerBlue">Email Support</strong>
+                                <p class="text-lg text-gray-700 mt-1">pusim@unmer.ac.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
 
-</body>
+                <footer class="bg-black py-8">
+                    <div class="container mx-auto px-4 text-center">
+                        <p class="text-white text-sm opacity-80">
+                            Copyright Universitas Merdeka Malang &copy; 2026. All rights reserved.
+                        </p>
+                    </div>
+                </footer>
+
+            </body>
 
 </html>

@@ -66,6 +66,7 @@
                 <a href="{{ url('/layanan') }}" class="text-unmerBlue border-b-2 border-unmerBlue pb-1">Layanan</a>
                 <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
                 <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
+                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
             </nav>
 
             <div class="relative hidden sm:block">

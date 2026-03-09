@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panduan PUSIM - UNMER Malang</title>
 
+    <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
 
@@ -252,7 +254,7 @@
         <div class="container nav-wrapper">
             <a href="{{ url('/') }}" class="logo-area">
                 <img src="oip.jpeg" alt="Logo" class="logo">
-                <span class="brand-name">UNMER MALANG</span>
+                <span class="brand-name">UNIVERSITAS MERDEKA MALANG</span>
             </a>
 
             <ul class="nav-links">
@@ -261,6 +263,7 @@
                 <li><a href="{{ url('/layanan') }}">Layanan</a></li>
                 <li><a href="{{ url('/panduan') }}" class="active">Panduan</a></li>
                 <li><a href="{{ url('/contact') }}">Contact</a></li>
+                <li><a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a></li>
             </ul>
 
             <div class="search-container">
