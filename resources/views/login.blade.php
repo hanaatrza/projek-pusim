@@ -248,18 +248,30 @@
 
             <div class="login-right">
                 <h2>Selamat Datang</h2>
-                <form>
+                @if ($errors->any())
+                    <div
+                        style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                        <ul style="margin: 0; padding-left: 20px;">
+                            @foreach ($errors->all() as $error)
+                                <li style="font-size: 14px;">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <label>Username</label>
+                        <label>Email</label>
                         <div class="input-wrapper">
-                            <input type="text" placeholder="Masukkan username Anda">
+                            <input type="email" name="email" value="{{ old('email') }}"
+                                placeholder="Masukkan email Anda" required autofocus>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Password</label>
                         <div class="input-wrapper">
-                            <input type="password" placeholder="Masukkan password Anda">
+                            <input type="password" name="password" placeholder="Masukkan password Anda" required>
                         </div>
                     </div>
 
