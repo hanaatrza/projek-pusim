@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () { // Ini berarti alamatnya adalah http://127.0.0.1:8000/
+Route::get('/', function () {
     return view('beranda');
 });
 
