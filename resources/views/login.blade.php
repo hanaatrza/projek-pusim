@@ -4,76 +4,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Multimedia UNMER</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SIAKAD - Universitas Merdeka Malang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <style>
+        :root {
+            --primary-blue: #4285f4;
+            --unmer-orange: #f57c00;
+            --unmer-green: #8cb043;
+            --unmer-yellow: #ffcc00;
+            --bg-body: #d1e3f8;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo img {
+            height: 45px;
+        }
+
+        .nav-logo span {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .nav-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search input {
+            background-color: #f1f3f4;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            width: 150px;
+            outline: none;
+        }
+
+        /* --- LOGIN CARD --- */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .login-card {
+            background: white;
+            width: 900px;
+            max-width: 95%;
+            height: 520px;
+            display: flex;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-left {
+            flex: 1;
+            /* DISINI GAMBARNYA: Aku ganti ke Unsplash supaya PASTI MUNCUL */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+                url('/images/malang.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .overlay-banner {
+            background: var(--unmer-green);
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .overlay-banner h1 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .login-right {
+            flex: 1.1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-right h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fcfcfc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--unmer-orange);
+        }
+
+        /* Tombol Masuk Warna Kuning Unmer */
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--unmer-yellow);
+            color: #1a4314;
+            /* Teks Hijau Tua */
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-login:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100">
+<body>
 
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center flex-shrink-0">
-                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-8 mr-2">
-                <span class="font-bold text-gray-800 uppercase text-xs md:text-sm tracking-tight">
-                    Universitas Merdeka Malang
-                </span>
-            </div>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo">
+            <span>Universitas Merdeka Malang</span>
+        </div>
 
-            <div class="hidden md:flex items-center space-x-6 flex-grow justify-center">
-                <a href="/" class="text-gray-500 hover:text-blue-600 transition text-sm">Beranda</a>
-                <a href="/profil" class="text-gray-500 hover:text-blue-600 transition text-sm">Profil</a>
-                <a href="/layanan" class="text-gray-500 hover:text-blue-600 transition text-sm">Layanan</a>
-                <a href="/panduan" class="text-gray-500 hover:text-blue-600 transition text-sm">Panduan</a>
-                <a href="/contact" class="text-gray-500 hover:text-blue-600 transition text-sm">Contact</a>
-                <a href="/login" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1 text-sm">Login</a>
-            </div>
+        <ul class="nav-menu">
+            <li><a href="{{ url('/') }}">Beranda</a></li>
+            <li><a href="{{ url('/profil') }}">Profil</a></li>
+            <li><a href="{{ url('/layanan') }}">Layanan</a></li>
+            <li><a href="{{ url('/panduan') }}">Panduan</a></li>
+            <li><a href="{{ url('/contact') }}">Contact</a></li>
+            <li><a href="#" class="active">Login</a></li>
+        </ul>
 
-            <div class="hidden md:block w-[200px]"></div>
+        <div class="nav-search">
+            <input type="text" placeholder="Cari...">
         </div>
     </nav>
 
-    <div class="w-full h-[300px] md:h-[450px] bg-cover bg-center"
-        style="background-image: url('{{ asset('images/unmer.jpg') }}');">
-        <div class="w-full h-full bg-black/30 flex items-center justify-center">
-            <h2 class="text-white text-3xl md:text-5xl font-bold uppercase tracking-widest shadow-lg">Login Multimedia
-            </h2>
-        </div>
-    </div>
-
-    <main class="max-w-7xl mx-auto py-12 px-4 flex justify-center">
-        <div class="bg-white p-8 md:p-10 rounded-lg shadow-xl w-full max-w-md border border-gray-200">
-            <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo UNMER" class="mx-auto w-16 mb-6">
-
-            <form action="#" method="POST" class="space-y-5">
-                @csrf
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email</label>
-                    <input type="email" name="email" required placeholder="Masukkan Email"
-                        class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
+    <div class="content-wrapper">
+        <div class="login-card">
+            <div class="login-left">
+                <div class="overlay-banner">
+                    <h1>SIAKAD</h1>
+                    <p>Universitas Merdeka Malang</p>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Password</label>
-                    <input type="password" name="password" required placeholder="Masukkan Password"
-                        class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
-                </div>
-                <button type="submit"
-                    class="w-full bg-blue-600 text-white py-3 rounded font-bold hover:bg-blue-700 transition uppercase shadow-md mt-4">
-                    MASUK
-                </button>
-            </form>
+            </div>
 
-            <div class="mt-8 text-center">
-                <a href="/" class="text-sm text-blue-600 hover:underline font-medium">← Kembali ke Beranda</a>
+            <div class="login-right">
+                <h2>Selamat Datang</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Masukkan username Anda">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" placeholder="Masukkan password Anda">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-login">
+                        Masuk
+                    </button>
+                </form>
             </div>
         </div>
-    </main>
-
-    <footer class="bg-white py-6 border-t text-center text-gray-400 text-xs">
-        &copy; 2026 PUSIM Universitas Merdeka Malang
-    </footer>
+    </div>
 
 </body>
 
