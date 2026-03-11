@@ -263,7 +263,19 @@
                 <li><a href="{{ url('/layanan') }}">Layanan</a></li>
                 <li><a href="{{ url('/panduan') }}" class="active">Panduan</a></li>
                 <li><a href="{{ url('/contact') }}">Contact</a></li>
-                <li><a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a></li>
+                @auth
+                    <li>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm text-gray-700 font-medium">Hai, {{ Auth::user()->name }}</span>
+                            <form action="{{ route('logout') }}" method="POST" class="inline">
+                                @csrf
+                                <button type="submit" class="font-bold text-red-600 hover:text-red-800 text-sm">Logout</button>
+                            </form>
+                        </div>
+                    </li>
+                @else
+                    <li><a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a></li>
+                @endauth
             </ul>
 
             <div class="search-container">
