@@ -249,7 +249,8 @@
             <div class="login-right">
                 <h2>Selamat Datang</h2>
                 @if ($errors->any())
-                    <div style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                    <div
+                        style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
                         <ul style="margin: 0; padding-left: 20px;">
                             @foreach ($errors->all() as $error)
                                 <li style="font-size: 14px;">{{ $error }}</li>
@@ -262,7 +263,8 @@
                     <div class="form-group">
                         <label>Email</label>
                         <div class="input-wrapper">
-                            <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email Anda" required autofocus>
+                            <input type="email" name="email" value="{{ old('email') }}"
+                                placeholder="Masukkan email Anda" required autofocus>
                         </div>
                     </div>
 
