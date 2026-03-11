@@ -85,17 +85,8 @@
                 <a href="{{ url('/layanan') }}" class="hover:text-unmerBlue transition-colors">Layanan</a>
                 <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
                 <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
-                @auth
-                    <div class="ml-4 flex items-center gap-3">
-                        <span class="text-sm text-gray-700 font-medium">Hai, {{ Auth::user()->name }}</span>
-                        <form action="{{ route('logout') }}" method="POST" class="inline">
-                            @csrf
-                            <button type="submit" class="font-bold text-red-600 hover:text-red-800 text-sm">Logout</button>
-                        </form>
-                    </div>
-                @else
-                    <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
-                @endauth
+                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
+
             </nav>
 
             <div class="relative hidden sm:block">

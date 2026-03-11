@@ -241,30 +241,26 @@
         <div class="login-card">
             <div class="login-left">
                 <div class="overlay-banner">
-                    <h1>SIAKAD</h1>
+                    <h1>PUSIM</h1>
                     <p>Universitas Merdeka Malang</p>
                 </div>
             </div>
 
             <div class="login-right">
                 <h2>Selamat Datang</h2>
-                @if ($errors->any())
-                    <div
-                        style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-                        <ul style="margin: 0; padding-left: 20px;">
-                            @foreach ($errors->all() as $error)
-                                <li style="font-size: 14px;">{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="{{ route('login') }}" method="POST">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
+                    
+                    @if ($errors->any())
+                        <div style="color: red; margin-bottom: 15px; font-size: 14px; text-align: center;">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
+
                     <div class="form-group">
                         <label>Email</label>
                         <div class="input-wrapper">
-                            <input type="email" name="email" value="{{ old('email') }}"
-                                placeholder="Masukkan email Anda" required autofocus>
+                            <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email Anda" required>
                         </div>
                     </div>
 
