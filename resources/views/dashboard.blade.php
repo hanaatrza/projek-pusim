@@ -116,7 +116,7 @@
                 <p class="text-blue-100 text-lg">Kelola layanan dan akses informasi PUSIM Universitas Merdeka Malang
                     dengan mudah melalui dashboard terpusat ini.</p>
                 <div class="mt-6 flex gap-4">
-                    <button
+                    <button onclick="openModal()"
                         class="bg-white text-unmerBlue px-5 py-2.5 rounded-lg font-bold shadow-md hover:bg-gray-100 transition-all transform hover:-translate-y-1">Ajukan
                         Layanan</button>
                     <button
@@ -297,7 +297,7 @@
                     <h3 class="font-bold text-gray-800">Akses Cepat</h3>
                 </div>
                 <div class="p-4 space-y-3">
-                    <a href="#"
+                    <a href="#" onclick="openModal(); return false;"
                         class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors border border-transparent hover:border-blue-100 group">
                         <div
                             class="bg-blue-100 p-2 rounded text-blue-600 group-hover:bg-unmerBlue group-hover:text-white transition-colors">
@@ -367,7 +367,125 @@
                 </div>
             </div>
         </div>
+        <!-- Modal Form Buat Tiket Baru -->
+        <div id="ticketModal" class="fixed inset-0 z-[100] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <!-- Background backdrop, show/hide based on modal state. -->
+            <div class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
+
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <!-- Modal panel -->
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 z-10">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 relative">
+                        <!-- Close button -->
+                        <button onclick="closeModal()" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-500 hover:bg-gray-100 p-1 rounded-full transition-colors focus:outline-none">
+                            <span class="sr-only">Tutup</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <svg class="h-6 w-6 text-unmerBlue" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                                <h3 class="text-xl font-bold leading-6 text-gray-900" id="modal-title">Buat Tiket Layanan Baru</h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500">Silakan isi formulir di bawah ini untuk mengajukan permohonan layanan atau melaporkan kendala ke PUSIM.</p>
+                                </div>
+                                
+                                <form id="ticketForm" class="mt-5 space-y-4" action="#" method="POST" onsubmit="submitTicket(event)">
+                                    @csrf
+                                    <div>
+                                        <label for="judul" class="block text-sm font-medium text-gray-700 text-left">Judul Kendala / Permohonan</label>
+                                        <input type="text" name="judul" id="judul" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-2 border" placeholder="Misal: Reset Password Siakad">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="kategori" class="block text-sm font-medium text-gray-700 text-left">Kategori Layanan</label>
+                                        <select id="kategori" name="kategori" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-2.5 border bg-white">
+                                            <option value="" disabled selected>Pilih kategori...</option>
+                                            <option value="jaringan">Aduan Jaringan (WiFi/LAN)</option>
+                                            <option value="akun">Pembuatan / Masalah Akun Email Mahasiswa</option>
+                                            <option value="siakad">Sistem Akademik (Siakad)</option>
+                                            <option value="laboratorium">Peminjaman Laboratorium Komputer</option>
+                                            <option value="lainnya">Lainnya...</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="deskripsi" class="block text-sm font-medium text-gray-700 text-left">Deskripsi Lengkap</label>
+                                        <textarea id="deskripsi" name="deskripsi" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-2 border" placeholder="Jelaskan secara detail kendala atau layanan yang Anda butuhkan..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 text-left">Lampiran (Opsional)</label>
+                                        <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 hover:bg-gray-50 transition-colors">
+                                            <div class="space-y-1 text-center">
+                                                <svg class="mx-auto h-10 w-10 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                <div class="flex text-sm text-gray-600 justify-center">
+                                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-medium text-unmerBlue focus-within:outline-none focus-within:ring-2 focus-within:ring-unmerBlue focus-within:ring-offset-2 hover:text-unmerDark">
+                                                        <span>Upload a file</span>
+                                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                    </label>
+                                                    <p class="pl-1">or drag and drop</p>
+                                                </div>
+                                                <p class="text-xs text-gray-500">PNG, JPG, PDF up to 5MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" onclick="submitFormTicket()" class="inline-flex w-full justify-center rounded-md border border-transparent bg-unmerBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-unmerDark focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm transition-colors">
+                            Kirim Tiket
+                        </button>
+                        <button type="button" onclick="closeModal()" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-colors">
+                            Batal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <script>
+        function openModal() {
+            document.getElementById('ticketModal').classList.remove('hidden');
+            setTimeout(() => {
+                const backdrop = document.getElementById('ticketModal').querySelector('.bg-gray-800');
+                if(backdrop) backdrop.classList.add('opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('ticketModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitFormTicket() {
+            const form = document.getElementById('ticketForm');
+            if (form.checkValidity()) {
+                alert('Tiket berhasil dikirim! Tim PUSIM akan segera memproses laporan Anda.');
+                form.reset();
+                closeModal();
+            } else {
+                form.reportValidity();
+            }
+        }
+        
+        function submitTicket(e) {
+            e.preventDefault();
+            submitFormTicket();
+        }
+    </script>
 
     <!-- Footer -->
     <footer class="bg-white py-6 border-t border-gray-200 mt-auto">
