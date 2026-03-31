@@ -314,7 +314,7 @@
                         </div>
                     </a>
 
-                    <a href="#"
+                    <a href="{{ route('profile.edit') }}"
                         class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors border border-transparent hover:border-blue-100 group">
                         <div
                             class="bg-gray-100 p-2 rounded text-gray-600 group-hover:bg-unmerBlue group-hover:text-white transition-colors">
