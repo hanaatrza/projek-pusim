@@ -44,6 +44,21 @@
                 transform: translateY(0);
             }
         }
+
+        /* Custom Scrollbar for Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #94a3b8;
+        }
     </style>
 </head>
 
@@ -370,84 +385,106 @@
         <!-- Modal Form Buat Tiket Baru -->
         <div id="ticketModal" class="fixed inset-0 z-[100] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <!-- Background backdrop, show/hide based on modal state. -->
-            <div class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
+            <div id="ticketModalBackdrop" class="fixed inset-0 bg-gray-900/40 backdrop-blur-sm transition-opacity opacity-0 duration-300 ease-in-out" onclick="closeModal()"></div>
 
-            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                 <!-- Modal panel -->
-                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 z-10">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 relative">
-                        <!-- Close button -->
-                        <button onclick="closeModal()" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-500 hover:bg-gray-100 p-1 rounded-full transition-colors focus:outline-none">
+                <div id="ticketModalPanel" class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all opacity-0 scale-95 sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 z-10 duration-300 ease-out flex flex-col max-h-[90vh]">
+                    
+                    <!-- Decorative Top Header -->
+                    <div class="relative bg-gradient-to-r from-unmerBlue to-blue-500 px-6 py-5 flex items-center justify-between shrink-0">
+                        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                            <svg class="absolute right-0 top-0 opacity-10 transform scale-150 translate-x-1/4 -translate-y-1/4" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#ffffff" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.3,-46.3C90.8,-33.5,96.8,-18,97.4,-2.2C98,13.6,93.2,29.7,83.9,43.3C74.6,56.9,60.8,68.1,45.8,76C30.8,83.9,14.7,88.5,0.1,88.3C-14.5,88.1,-29,83.1,-42.6,75.1C-56.2,67.1,-68.9,56.1,-78.4,42.5C-87.9,28.9,-94.1,12.7,-93.4,-3C-92.7,-18.7,-85.1,-33.9,-74.6,-46C-64.1,-58.1,-50.7,-67,-36.8,-73.9C-22.9,-80.8,-8.5,-85.6,3.6,-81.4C15.7,-77.2,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center gap-3 relative z-10">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white shadow-sm">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 3h5m0 0v5m0-5l-6 6M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white tracking-wide" id="modal-title">Buat Tiket Baru</h3>
+                                <p class="text-blue-100 text-xs mt-0.5">Layanan bantuan dan pelaporan</p>
+                            </div>
+                        </div>
+                        <button onclick="closeModal()" type="button" class="relative z-10 text-white/80 hover:text-white hover:bg-white/20 p-2 rounded-full transition-colors focus:outline-none outline-none">
                             <span class="sr-only">Tutup</span>
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
-                        
-                        <div class="sm:flex sm:items-start">
-                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <svg class="h-6 w-6 text-unmerBlue" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
-                                <h3 class="text-xl font-bold leading-6 text-gray-900" id="modal-title">Buat Tiket Layanan Baru</h3>
-                                <div class="mt-2">
-                                    <p class="text-sm text-gray-500">Silakan isi formulir di bawah ini untuk mengajukan permohonan layanan atau melaporkan kendala ke PUSIM.</p>
-                                </div>
-                                
-                                <form id="ticketForm" class="mt-5 space-y-4" action="#" method="POST" onsubmit="submitTicket(event)">
-                                    @csrf
-                                    <div>
-                                        <label for="judul" class="block text-sm font-medium text-gray-700 text-left">Judul Kendala / Permohonan</label>
-                                        <input type="text" name="judul" id="judul" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-2 border" placeholder="Misal: Reset Password Siakad">
-                                    </div>
-                                    
-                                    <div>
-                                        <label for="kategori" class="block text-sm font-medium text-gray-700 text-left">Kategori Layanan</label>
-                                        <select id="kategori" name="kategori" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-2.5 border bg-white">
-                                            <option value="" disabled selected>Pilih kategori...</option>
-                                            <option value="jaringan">Aduan Jaringan (WiFi/LAN)</option>
-                                            <option value="akun">Pembuatan / Masalah Akun Email Mahasiswa</option>
-                                            <option value="siakad">Sistem Akademik (Siakad)</option>
-                                            <option value="laboratorium">Peminjaman Laboratorium Komputer</option>
-                                            <option value="lainnya">Lainnya...</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div>
-                                        <label for="deskripsi" class="block text-sm font-medium text-gray-700 text-left">Deskripsi Lengkap</label>
-                                        <textarea id="deskripsi" name="deskripsi" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-2 border" placeholder="Jelaskan secara detail kendala atau layanan yang Anda butuhkan..."></textarea>
-                                    </div>
-                                    
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 text-left">Lampiran (Opsional)</label>
-                                        <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 hover:bg-gray-50 transition-colors">
-                                            <div class="space-y-1 text-center">
-                                                <svg class="mx-auto h-10 w-10 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                                <div class="flex text-sm text-gray-600 justify-center">
-                                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-medium text-unmerBlue focus-within:outline-none focus-within:ring-2 focus-within:ring-unmerBlue focus-within:ring-offset-2 hover:text-unmerDark">
-                                                        <span>Upload a file</span>
-                                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    </label>
-                                                    <p class="pl-1">or drag and drop</p>
-                                                </div>
-                                                <p class="text-xs text-gray-500">PNG, JPG, PDF up to 5MB</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button" onclick="submitFormTicket()" class="inline-flex w-full justify-center rounded-md border border-transparent bg-unmerBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-unmerDark focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm transition-colors">
-                            Kirim Tiket
-                        </button>
-                        <button type="button" onclick="closeModal()" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-colors">
+
+                    <!-- Modal Body Form -->
+                    <div class="px-6 py-5 overflow-y-auto custom-scrollbar">
+                        <form id="ticketForm" class="space-y-5" action="#" method="POST" onsubmit="submitTicket(event)">
+                            @csrf
+                            <!-- Input Judul -->
+                            <div class="space-y-1">
+                                <label for="judul" class="block text-sm font-semibold text-gray-700">Judul Kendala / Permohonan <span class="text-red-500">*</span></label>
+                                <input type="text" name="judul" id="judul" required class="block w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800 focus:bg-white focus:border-unmerBlue focus:outline-none focus:ring-4 focus:ring-unmerBlue/10 transition-all placeholder-gray-400" placeholder="Contoh: Lupa Password Akun Siakad">
+                            </div>
+                            
+                            <!-- Input Kategori -->
+                            <div class="space-y-1">
+                                <label for="kategori" class="block text-sm font-semibold text-gray-700">Kategori Layanan <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <select id="kategori" name="kategori" required class="block w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800 focus:bg-white focus:border-unmerBlue focus:outline-none focus:ring-4 focus:ring-unmerBlue/10 transition-all">
+                                        <option value="" disabled selected>Pilih kategori yang sesuai...</option>
+                                        <option value="jaringan">🌐 Aduan Jaringan (WiFi/LAN)</option>
+                                        <option value="akun">📩 Pembuatan / Masalah Akun Email Mahasiswa</option>
+                                        <option value="siakad">🎓 Sistem Akademik (Siakad)</option>
+                                        <option value="laboratorium">💻 Peminjaman Laboratorium Komputer</option>
+                                        <option value="lainnya">Lainnya...</option>
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Input Deskripsi -->
+                            <div class="space-y-1">
+                                <label for="deskripsi" class="block text-sm font-semibold text-gray-700">Deskripsi Lengkap <span class="text-red-500">*</span></label>
+                                <textarea id="deskripsi" name="deskripsi" rows="3" required class="block w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800 focus:bg-white focus:border-unmerBlue focus:outline-none focus:ring-4 focus:ring-unmerBlue/10 transition-all placeholder-gray-400 resize-none" placeholder="Ceritakan detail kendala yang Anda alami atau jelaskan kebutuhan layanan Anda..."></textarea>
+                            </div>
+                            
+                            <!-- Input Lampiran -->
+                            <div class="space-y-1">
+                                <label class="block text-sm font-semibold text-gray-700">Lampiran <span class="text-xs font-normal text-gray-400">(Opsional)</span></label>
+                                <div class="group flex justify-center rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 px-6 py-6 hover:border-unmerBlue/50 hover:bg-blue-50/30 transition-all cursor-pointer relative" onclick="document.getElementById('file-upload').click()">
+                                    <div class="text-center">
+                                        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-gray-100 group-hover:scale-110 group-hover:ring-unmerBlue/30 group-hover:bg-blue-50 transition-all">
+                                            <svg class="h-6 w-6 text-gray-400 group-hover:text-unmerBlue" stroke="currentColor" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                            </svg>
+                                        </div>
+                                        <div class="mt-4 flex text-sm justify-center leading-6 text-gray-600">
+                                            <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-unmerBlue focus-within:outline-none hover:text-unmerDark">
+                                                <span>Klik untuk unggah</span>
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                            </label>
+                                            <p class="pl-1">&nbsp;atau tarik & jatuhkan</p>
+                                        </div>
+                                        <p class="text-xs leading-5 text-gray-400 mt-1">PNG, JPG, PDF maks. 5MB</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="bg-gray-50 px-6 py-4 flex flex-col-reverse sm:flex-row sm:justify-end gap-3 border-t border-gray-200 shrink-0">
+                        <button type="button" onclick="closeModal()" class="inline-flex w-full justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-900 sm:w-auto transition-all focus:outline-none focus:ring-2 focus:ring-gray-200">
                             Batal
+                        </button>
+                        <button type="button" onclick="submitFormTicket()" class="inline-flex w-full justify-center items-center gap-2 rounded-xl bg-unmerBlue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-unmerDark sm:w-auto transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 hover:shadow-md">
+                            Kirim Tiket
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -457,17 +494,38 @@
 
     <script>
         function openModal() {
-            document.getElementById('ticketModal').classList.remove('hidden');
-            setTimeout(() => {
-                const backdrop = document.getElementById('ticketModal').querySelector('.bg-gray-800');
-                if(backdrop) backdrop.classList.add('opacity-100');
-            }, 10);
+            const modal = document.getElementById('ticketModal');
+            const backdrop = document.getElementById('ticketModalBackdrop');
+            const panel = document.getElementById('ticketModalPanel');
+            
+            modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            
+            // Allow display block to apply before animating opacity/transform
+            requestAnimationFrame(() => {
+                backdrop.classList.remove('opacity-0');
+                backdrop.classList.add('opacity-100');
+                
+                panel.classList.remove('opacity-0', 'scale-95');
+                panel.classList.add('opacity-100', 'scale-100');
+            });
         }
 
         function closeModal() {
-            document.getElementById('ticketModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            const backdrop = document.getElementById('ticketModalBackdrop');
+            const panel = document.getElementById('ticketModalPanel');
+            
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0');
+            
+            panel.classList.remove('opacity-100', 'scale-100');
+            panel.classList.add('opacity-0', 'scale-95');
+            
+            // Wait for transition to complete before hiding
+            setTimeout(() => {
+                document.getElementById('ticketModal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
         }
 
         function submitFormTicket() {
