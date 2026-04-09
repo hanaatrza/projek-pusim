@@ -280,8 +280,8 @@
     </header>
     <main class="container main-content">
         <p class="content-text">
-            Halaman panduan ini menyajikan berbagai sumber daya informasi untuk memudahkan sivitas akademika dalam
-            memanfaatkan teknologi kampus.
+            Halaman panduan ini menyajikan berbagai sumber daya informasi untuk memudahkan Sivitas Akademika dalam
+            memanfaatkan Teknologi Kampus.
         </p>
 
         <div class="instruction-grid">
