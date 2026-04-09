@@ -114,7 +114,7 @@
             <div class="text-center mb-12">
                 <h4 class="text-2xl font-bold text-unmerBlue mb-4">Selamat datang di laman resmi PUSIM UNMER</h4>
                 <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    Kami berdedikasi untuk menyediakan infrastruktur teknologi informasi yang andal demi mewujudkan Visi
+                    Kami berdedikasi untuk menyediakan Infrastruktur Teknologi Informasi yang andal demi mewujudkan Visi
                     Universitas Merdeka Malang di era digital.
                 </p>
             </div>
