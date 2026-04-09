@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda PUSIM - Universitas Merdeka Malang</title>
+    <title>BERANDA PUSIM - Universitas Merdeka Malang</title>
 
     <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
 
