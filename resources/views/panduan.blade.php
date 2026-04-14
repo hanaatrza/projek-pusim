@@ -285,28 +285,21 @@
         </p>
 
         <div class="instruction-grid">
-            <div class="instruction-card">
-                <div class="card-number">01</div>
-                <span class="card-icon">📧</span>
-                <h3>Aktivasi Email Institusi</h3>
-                <p>Panduan lengkap tata cara aktivasi email resmi UNMER untuk pertama kali bagi mahasiswa baru dan
-                    dosen.</p>
+            @forelse($knowledges as $index => $kb)
+            <div class="instruction-card flex flex-col justify-between">
+                <div>
+                    <div class="card-number">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
+                    <span class="card-icon">{{ $kb->icon }}</span>
+                    <h3>{{ $kb->title }}</h3>
+                    <p>{{ $kb->description }}</p>
+                </div>
+                <a href="{{ route('panduan.showPublic', $kb->id) }}" style="display:inline-block; margin-top:15px; color:#007bff; font-weight:600; text-decoration:none;">Baca Selengkapnya &rarr;</a>
             </div>
-
-            <div class="instruction-card">
-                <div class="card-number">02</div>
-                <span class="card-icon">📚</span>
-                <h3>Akses Materi & Tugas</h3>
-                <p>Langkah-langkah praktis mengakses platform pembelajaran, mengunduh materi kuliah, dan mengirimkan
-                    tugas.</p>
+            @empty
+            <div style="grid-column: 1 / -1; text-align:center; padding: 40px; color:#666;">
+                Belum ada panduan yang tersedia.
             </div>
-
-            <div class="instruction-card">
-                <div class="card-number">03</div>
-                <span class="card-icon">🔑</span>
-                <h3>Lupa Password SSO</h3>
-                <p>Prosedur reset kata sandi mandiri untuk layanan Single Sign-On (SSO) universitas.</p>
-            </div>
+            @endforelse
         </div>
 
         <p class="content-text">
