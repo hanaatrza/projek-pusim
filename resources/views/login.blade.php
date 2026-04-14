@@ -4,280 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIAKAD - Universitas Merdeka Malang</title>
+    <title>Login - Universitas Merdeka Malang</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
 
-    <style>
-        :root {
-            --primary-blue: #4285f4;
-            --unmer-orange: #f57c00;
-            --unmer-green: #8cb043;
-            --unmer-yellow: #ffcc00;
-            --bg-body: #d1e3f8;
-        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        unmerBlue: '#206d94',
+                        unmerDark: '#1a4f6b',
+                        primaryBlue: '#4285f4',
+                        unmerOrange: '#f57c00',
+                        unmerGreen: '#8cb043',
+                        unmerYellow: '#ffcc00',
+                        bgBody: '#d1e3f8',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
         }
-
-        body {
-            background-color: var(--bg-body);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* --- NAVBAR --- */
-        .navbar {
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 40px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-logo img {
-            height: 45px;
-        }
-
-        .nav-logo span {
-            font-weight: bold;
-            color: #333;
-            font-size: 16px;
-            text-transform: uppercase;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #666;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .nav-menu a.active {
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-
-        .nav-search {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-search input {
-            background-color: #f1f3f4;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-            width: 150px;
-            outline: none;
-        }
-
-        /* --- LOGIN CARD --- */
-        .content-wrapper {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .login-card {
-            background: white;
-            width: 900px;
-            max-width: 95%;
-            height: 520px;
-            display: flex;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .login-left {
-            flex: 1;
-            /* DISINI GAMBARNYA: Aku ganti ke Unsplash supaya PASTI MUNCUL */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-                url('/images/malang.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .overlay-banner {
-            background: var(--unmer-green);
-            width: 100%;
-            padding: 30px;
-            text-align: center;
-            color: white;
-        }
-
-        .overlay-banner h1 {
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .login-right {
-            flex: 1.1;
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .login-right h2 {
-            margin-bottom: 25px;
-            color: #333;
-            font-size: 22px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #666;
-            font-weight: 600;
-        }
-
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .input-wrapper input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #fcfcfc;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .input-wrapper input:focus {
-            border-color: var(--unmer-orange);
-        }
-
-        /* Tombol Masuk Warna Kuning Unmer */
-        .btn-login {
-            width: 100%;
-            padding: 14px;
-            background-color: var(--unmer-yellow);
-            color: #1a4314;
-            /* Teks Hijau Tua */
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-login:hover {
-            background-color: #e6b800;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-    </style>
+    </script>
 </head>
 
-<body>
+<body class="bg-bgBody text-gray-800 font-sans flex flex-col min-h-screen">
 
-    <nav class="navbar">
-        <div class="nav-logo">
-            <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo">
-            <span>Universitas Merdeka Malang</span>
-        </div>
+    <!-- Navbar Standar -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
 
-        <ul class="nav-menu">
-            <li><a href="{{ url('/') }}">Beranda</a></li>
-            <li><a href="{{ url('/profil') }}">Profil</a></li>
-            <li><a href="{{ url('/layanan') }}">Layanan</a></li>
-            <li><a href="{{ url('/panduan') }}">Panduan</a></li>
-            <li><a href="{{ url('/contact') }}">Contact</a></li>
-            <li><a href="#" class="active">Login</a></li>
-        </ul>
+            <div class="flex items-center space-x-3 flex-1">
+                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-12 w-auto">
+                <h1
+                    class="font-bold text-lg tracking-tight text-gray-800 uppercase hidden md:block border-l-2 border-gray-200 pl-3">
+                    Universitas Merdeka Malang
+                </h1>
+            </div>
 
-        <div class="nav-search">
-            <input type="text" placeholder="Cari...">
-        </div>
-    </nav>
+            <nav
+                class="hidden lg:flex items-center justify-center space-x-6 text-sm font-semibold text-gray-600 flex-1">
+                <a href="{{ url('/') }}" class="hover:text-unmerBlue transition-colors">Beranda</a>
+                <a href="{{ url('/profil') }}" class="hover:text-unmerBlue transition-colors">Profil</a>
+                <a href="{{ url('/layanan') }}" class="hover:text-unmerBlue transition-colors">Layanan</a>
+                <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
+                <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
+                <a href="{{ url('/login') }}" class="text-unmerBlue font-bold border-b-2 border-unmerBlue pb-1 ml-4">Login</a>
+            </nav>
 
-    <div class="content-wrapper">
-        <div class="login-card">
-            <div class="login-left">
-                <div class="overlay-banner">
-                    <h1>PUSIM</h1>
-                    <p>Universitas Merdeka Malang</p>
+            <div class="hidden sm:flex flex-1 justify-end">
+                <div class="relative w-48">
+                    <input type="text" placeholder="Cari..."
+                        class="pl-4 pr-10 py-2 bg-gray-100 border-transparent rounded-full focus:bg-white focus:ring-2 focus:ring-unmerBlue text-sm w-full transition-all outline-none">
+                    <div class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-            <div class="login-right">
-                <h2>Selamat Datang</h2>
+            <button class="lg:hidden p-2 text-gray-600 ml-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Konten Login -->
+    <div class="flex-1 flex justify-center items-center py-12 px-4">
+        <div class="bg-white w-full max-w-[900px] h-auto md:h-[520px] flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+            
+            <div class="flex-1 bg-cover bg-center flex items-end relative"
+                style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('{{ asset('images/malang.jpg') }}'); min-height: 200px;">
+                <div class="bg-unmerGreen w-full p-8 text-center text-white">
+                    <h1 class="text-2xl md:text-[26px] font-extrabold tracking-widest uppercase">PUSIM</h1>
+                    <p class="mt-2 text-sm md:text-base">Universitas Merdeka Malang</p>
+                </div>
+            </div>
+
+            <div class="flex-[1.1] p-8 md:p-[60px] flex flex-col justify-center">
+                <h2 class="mb-6 text-gray-800 text-[22px] font-bold">Selamat Datang</h2>
+                
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     
                     @if ($errors->any())
-                        <div style="color: red; margin-bottom: 15px; font-size: 14px; text-align: center;">
+                        <div class="text-red-500 mb-4 text-sm text-center">
                             {{ $errors->first() }}
                         </div>
                     @endif
 
-                    <div class="form-group">
-                        <label>Email</label>
-                        <div class="input-wrapper">
-                            <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email Anda" required>
+                    <div class="mb-5">
+                        <label class="block mb-2 text-sm text-gray-600 font-semibold">Email</label>
+                        <div class="relative flex items-center">
+                            <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email Anda" required
+                                class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 outline-none focus:border-unmerOrange transition-colors duration-300">
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Password</label>
-                        <div class="input-wrapper">
-                            <input type="password" name="password" placeholder="Masukkan password Anda" required>
+                    <div class="mb-5">
+                        <label class="block mb-2 text-sm text-gray-600 font-semibold">Password</label>
+                        <div class="relative flex items-center">
+                            <input type="password" name="password" placeholder="Masukkan password Anda" required
+                                class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 outline-none focus:border-unmerOrange transition-colors duration-300">
                         </div>
                     </div>
 
-                    <button type="submit" class="btn-login">
+                    <button type="submit"
+                        class="w-full mt-2 p-[14px] bg-unmerYellow hover:bg-[#e6b800] text-[#1a4314] rounded-lg text-base font-bold flex justify-center items-center gap-2 transition-all duration-300 shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15)] hover:-translate-y-[2px]">
                         Masuk
                     </button>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- Footer Standar -->
+    <footer class="bg-black py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white text-sm tracking-wide opacity-80">
+                Copyright Universitas Merdeka Malang &copy; 2026. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
 </body>
 
