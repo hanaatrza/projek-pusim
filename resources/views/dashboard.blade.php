@@ -108,6 +108,17 @@
     <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl fade-in">
 
+        @if (session('success'))
+            <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative shadow-sm" role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <button type="button" onclick="this.parentElement.parentElement.style.display='none'">
+                        <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                    </button>
+                </span>
+            </div>
+        @endif
+
         <!-- Welcome Banner -->
         <div
             class="bg-gradient-to-r from-unmerBlue to-blue-500 rounded-2xl shadow-lg p-8 mb-8 text-white relative overflow-hidden">
@@ -119,9 +130,9 @@
                     <button onclick="openModal()"
                         class="bg-white text-unmerBlue px-5 py-2.5 rounded-lg font-bold shadow-md hover:bg-gray-100 transition-all transform hover:-translate-y-1">Ajukan
                         Layanan</button>
-                    <button
-                        class="bg-transparent border-2 border-white text-white px-5 py-2.5 rounded-lg font-bold hover:bg-white hover:text-unmerBlue transition-all">Lihat
-                        Panduan</button>
+                    <a href="{{ url('/dashboard/basis-pengetahuan') }}"
+                        class="inline-block text-center bg-transparent border-2 border-white text-white px-5 py-2.5 rounded-lg font-bold hover:bg-white hover:text-unmerBlue transition-all">Lihat
+                        Panduan</a>
                 </div>
             </div>
             <div class="absolute right-0 top-0 h-full opacity-20 hidden md:block w-1/3">
@@ -149,7 +160,7 @@
                     <span class="text-xs font-bold px-2 py-1 bg-green-100 text-green-700 rounded-full">+2 Hari
                         Ini</span>
                 </div>
-                <h3 class="text-2xl font-black text-gray-800">12</h3>
+                <h3 class="text-2xl font-black text-gray-800">{{ $totalLayanan }}</h3>
                 <p class="text-gray-500 font-medium text-sm mt-1">Total Layanan Diajukan</p>
             </div>
 
@@ -166,7 +177,7 @@
                     <span class="text-xs font-bold px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">Dalam
                         Proses</span>
                 </div>
-                <h3 class="text-2xl font-black text-gray-800">3</h3>
+                <h3 class="text-2xl font-black text-gray-800">{{ $layananMenunggu }}</h3>
                 <p class="text-gray-500 font-medium text-sm mt-1">Layanan Menunggu</p>
             </div>
 
@@ -182,7 +193,7 @@
                     </div>
                     <span class="text-xs font-bold px-2 py-1 bg-gray-100 text-gray-600 rounded-full">Bulan Ini</span>
                 </div>
-                <h3 class="text-2xl font-black text-gray-800">8</h3>
+                <h3 class="text-2xl font-black text-gray-800">{{ $layananSelesai }}</h3>
                 <p class="text-gray-500 font-medium text-sm mt-1">Layanan Selesai</p>
             </div>
 
@@ -198,7 +209,7 @@
                     </div>
                     <span class="text-xs font-bold px-2 py-1 bg-red-100 text-red-700 rounded-full">Penting</span>
                 </div>
-                <h3 class="text-2xl font-black text-gray-800">2</h3>
+                <h3 class="text-2xl font-black text-gray-800">{{ $notifikasiBaru }}</h3>
                 <p class="text-gray-500 font-medium text-sm mt-1">Notifikasi Baru</p>
             </div>
         </div>
@@ -222,70 +233,37 @@
                             </tr>
                         </thead>
                         <tbody class="text-sm">
-                            <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                                <td class="p-4">
-                                    <div class="font-bold text-gray-800">Peminjaman Laboratorium Komputer</div>
-                                    <div class="text-gray-500 text-xs">ID Req: #REQ-10023</div>
-                                </td>
-                                <td class="p-4 text-gray-600">11 Mar 2026</td>
-                                <td class="p-4">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Menunggu
-                                    </span>
-                                </td>
-                                <td class="p-4 text-right">
-                                    <button class="text-unmerBlue hover:text-unmerDark font-semibold">Detail</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                                <td class="p-4">
-                                    <div class="font-bold text-gray-800">Pembuatan Akun Email Mahasiswa</div>
-                                    <div class="text-gray-500 text-xs">ID Req: #REQ-10021</div>
-                                </td>
-                                <td class="p-4 text-gray-600">08 Mar 2026</td>
-                                <td class="p-4">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Selesai
-                                    </span>
-                                </td>
-                                <td class="p-4 text-right">
-                                    <button class="text-unmerBlue hover:text-unmerDark font-semibold">Detail</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                                <td class="p-4">
-                                    <div class="font-bold text-gray-800">Aduan Jaringan WiFi Perpustakaan</div>
-                                    <div class="text-gray-500 text-xs">ID Req: #REQ-10015</div>
-                                </td>
-                                <td class="p-4 text-gray-600">05 Mar 2026</td>
-                                <td class="p-4">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Diproses
-                                    </span>
-                                </td>
-                                <td class="p-4 text-right">
-                                    <button class="text-unmerBlue hover:text-unmerDark font-semibold">Detail</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="p-4">
-                                    <div class="font-bold text-gray-800">Reset Password Siakad</div>
-                                    <div class="text-gray-500 text-xs">ID Req: #REQ-10008</div>
-                                </td>
-                                <td class="p-4 text-gray-600">01 Mar 2026</td>
-                                <td class="p-4">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Selesai
-                                    </span>
-                                </td>
-                                <td class="p-4 text-right">
-                                    <button class="text-unmerBlue hover:text-unmerDark font-semibold">Detail</button>
-                                </td>
-                            </tr>
+                            @forelse($tickets as $ticket)
+                                <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                                    <td class="p-4">
+                                        <div class="font-bold text-gray-800">{{ $ticket->judul }}</div>
+                                        <div class="text-gray-500 text-xs">ID Req: {{ $ticket->ticket_number }}</div>
+                                    </td>
+                                    <td class="p-4 text-gray-600">{{ $ticket->created_at->format('d M Y') }}</td>
+                                    <td class="p-4">
+                                        @if($ticket->status == 'menunggu')
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Menunggu
+                                            </span>
+                                        @elseif($ticket->status == 'diproses')
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Diproses
+                                            </span>
+                                        @else
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Selesai
+                                            </span>
+                                        @endif
+                                    </td>
+                                    <td class="p-4 text-right">
+                                        <button class="text-unmerBlue hover:text-unmerDark font-semibold">Detail</button>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="p-4 text-center text-gray-500">Belum ada aktivitas tiket.</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -331,7 +309,7 @@
                         </div>
                     </a>
 
-                    <a href="#"
+                    <a href="{{ url('/dashboard/basis-pengetahuan') }}"
                         class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors border border-transparent hover:border-blue-100 group">
                         <div
                             class="bg-gray-100 p-2 rounded text-gray-600 group-hover:bg-unmerBlue group-hover:text-white transition-colors">
@@ -342,7 +320,8 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800 text-sm group-hover:text-unmerBlue">Basis Pengetahuan
+                            <h4 class="font-semibold text-gray-800 text-sm group-hover:text-unmerBlue"> Basis
+                                Pengetahuan
                             </h4>
                             <p class="text-xs text-gray-500">Cari solusi mandiri dari panduan kami</p>
                         </div>
@@ -406,8 +385,8 @@
                                         permohonan layanan atau melaporkan kendala ke PUSIM.</p>
                                 </div>
 
-                                <form id="ticketForm" class="mt-5 space-y-4" action="#" method="POST"
-                                    onsubmit="submitTicket(event)">
+                                <form id="ticketForm" class="mt-5 space-y-4" action="{{ route('tickets.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div>
                                         <label for="judul"
@@ -473,7 +452,7 @@
                         </div>
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button" onclick="submitFormTicket()"
+                        <button type="submit" form="ticketForm"
                             class="inline-flex w-full justify-center rounded-md border border-transparent bg-unmerBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-unmerDark focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm transition-colors">
                             Kirim Tiket
                         </button>
@@ -500,22 +479,6 @@
         function closeModal() {
             document.getElementById('ticketModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
-        }
-
-        function submitFormTicket() {
-            const form = document.getElementById('ticketForm');
-            if (form.checkValidity()) {
-                alert('Tiket berhasil dikirim! Tim PUSIM akan segera memproses laporan Anda.');
-                form.reset();
-                closeModal();
-            } else {
-                form.reportValidity();
-            }
-        }
-
-        function submitTicket(e) {
-            e.preventDefault();
-            submitFormTicket();
         }
     </script>
 
