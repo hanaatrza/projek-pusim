@@ -1,243 +1,119 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil PUSIM - Universitas Merdeka Malang</title>
-
     <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        unmerBlue: '#206d94',
-                        unmerDark: '#1a4f6b',
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                }
-            }
+            theme: { extend: { colors: { unmerBlue: '#1c5e82', unmerDark: '#0f3d59' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } }
         }
     </script>
-
     <style>
-        .hero-overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-        }
-
-        .profile-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            padding: 2.5rem;
-            height: 100%;
-            transition: all 0.3s ease;
-            border: 1px solid #f3f4f6;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.75rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: #206d94;
-            border-radius: 2px;
-        }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+        .hero-gradient { background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(28,94,130,0.7) 100%); }
+        .glass-card { background: rgba(255, 255, 255, 1); border-radius: 1.5rem; transition: all 0.4s ease; border: 1px solid #f3f4f6; }
+        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: #1c5e8230; }
+        .btn-elegant { background: linear-gradient(135deg, #1c5e82 0%, #0f3d59 100%); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-elegant:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(28,94,130,0.3); }
+        .text-gradient { background: linear-gradient(135deg, #1c5e82 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-
-<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
-
-    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center space-x-3 flex-1">
-                <img src="{{ asset('oip.jpeg') }}" alt="Logo UNMER" class="h-12 w-auto">
-                <h1
-                    class="font-bold text-lg tracking-tight text-gray-800 uppercase hidden md:block border-l-2 border-gray-200 pl-3">
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen selection:bg-unmerBlue selection:text-white">
+    <header class="glass-nav sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-11 w-auto rounded-md shadow-sm">
+                <h1 class="font-bold text-sm md:text-base tracking-widest text-gray-900 uppercase hidden md:block border-l-2 border-unmerBlue/30 pl-4 py-1">
                     Universitas Merdeka Malang
                 </h1>
             </div>
-
-            <nav
-                class="hidden lg:flex items-center justify-center space-x-6 text-sm font-semibold text-gray-600 flex-1">
+            <nav class="hidden lg:flex items-center justify-center space-x-10 text-sm font-semibold tracking-wide text-gray-500">
                 <a href="{{ url('/') }}" class="hover:text-unmerBlue transition-colors">Beranda</a>
-                <a href="{{ url('/profil') }}" class="text-unmerBlue border-b-2 border-unmerBlue pb-1">Profil</a>
+                <a href="{{ url('/profil') }}" class="text-unmerBlue">Profil</a>
                 <a href="{{ url('/layanan') }}" class="hover:text-unmerBlue transition-colors">Layanan</a>
                 <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
                 <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
-                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800 ml-4">Login</a>
             </nav>
-
-            <div class="hidden sm:flex flex-1 justify-end">
-                <div class="relative w-48">
-                    <input type="text" placeholder="Cari..."
-                        class="pl-4 pr-10 py-2 bg-gray-100 border-transparent rounded-full focus:bg-white focus:ring-2 focus:ring-unmerBlue text-sm w-full transition-all outline-none text-gray-700">
-                    <div class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </div>
-                </div>
+            <div class="hidden sm:flex items-center">
+                <a href="{{ url('/login') }}" class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Login Portal</a>
             </div>
-
-            <button class="lg:hidden p-2 text-gray-600 ml-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
+            <button class="lg:hidden p-2 text-gray-800"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
         </div>
     </header>
 
-    <section class="relative h-[450px] flex items-center justify-center text-center">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style="background-image: url('{{ asset('unmer.jpeg') }}');">
-            <div class="absolute inset-0 hero-overlay"></div>
-        </div>
-
-        <div class="relative z-10 px-6 max-w-4xl">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight uppercase">
-                Profil PUSIM
-            </h2>
-            <p class="text-gray-200 text-lg md:text-xl font-medium tracking-wide uppercase">
-                Pusat Teknologi Informasi dan Multimedia
-            </p>
+    <section class="relative h-[450px] lg:h-[500px] flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105" style="background-image: url('{{ asset('unmer.jpeg') }}');"></div>
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center">
+            <span class="px-4 py-1 rounded-full border border-white/20 bg-white/10 text-white/90 text-[10px] font-bold tracking-[0.3em] uppercase mb-5">Tentang Kami</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">Profil Instansi</h2>
+            <p class="text-blue-50 text-xl font-light tracking-wide max-w-2xl">Pusat Teknologi Informasi dan Multimedia Universitas Merdeka Malang</p>
         </div>
     </section>
 
-    <main class="flex-grow container mx-auto px-4 py-20 max-w-6xl">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <main class="flex-grow container mx-auto px-6 py-24 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div class="space-y-8">
                 <div>
-                    <h3 class="text-3xl font-bold text-gray-900 section-title">Tentang PUSIM</h3>
+                    <h3 class="text-4xl font-bold text-gray-900 tracking-tight mb-4">Mengenal <span class="text-gradient">PUSIM</span></h3>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-unmerBlue to-blue-300 rounded-full"></div>
                 </div>
-                <div class="space-y-6">
-                    <p class="text-lg leading-relaxed text-gray-600 text-justify">
-                        Pusat Teknologi Informasi dan Komunikasi (PUSIM) Universitas Merdeka Malang adalah unit
-                        pelaksana teknis yang bertanggung jawab dalam pengembangan, pengelolaan, dan
-                        pengkoordinasian
-                        infrastruktur serta layanan teknologi informasi di lingkungan universitas.
+                <div class="space-y-6 text-gray-600 font-light text-lg leading-relaxed text-justify">
+                    <p>
+                        Pusat Teknologi Informasi dan Komunikasi (PUSIM) Universitas Merdeka Malang adalah unit pelaksana teknis yang bertanggung jawab dalam pengembangan, pengelolaan, dan pengkoordinasian infrastruktur serta layanan teknologi informasi di lingkungan universitas.
                     </p>
-                    <p
-                        class="text-lg leading-relaxed text-gray-600 text-justify border-l-4 border-unmerBlue pl-6 italic bg-blue-50 py-4 rounded-r-lg">
-                        PUSIM berkomitmen untuk menghadirkan inovasi digital yang mendukung proses akademik,
-                        administrasi, dan kemahasiswaan demi mewujudkan ekosistem kampus yang cerdas dan
-                        terintegrasi.
-                    </p>
+                    <div class="p-6 bg-blue-50/50 border-l-4 border-unmerBlue rounded-r-2xl italic font-medium">
+                        Kami berkomitmen untuk menghadirkan inovasi digital yang mendukung proses akademik, administrasi, dan kemahasiswaan demi mewujudkan ekosistem kampus yang cerdas dan terintegrasi.
+                    </div>
                 </div>
             </div>
-
+            
             <div class="space-y-8">
-                <div class="profile-card">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="p-3 bg-blue-50 text-unmerBlue rounded-xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
+                <div class="glass-card p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-unmerBlue to-unmerDark flex items-center justify-center text-white shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-unmerBlue">Visi</h4>
+                        <h4 class="text-2xl font-bold text-gray-900 tracking-tight">Visi Induk</h4>
                     </div>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        Menjadi Universitas terkemuka dalam pengembangan SDM seutuhnya yang berjiwa wirausaha pada
-                        skala
-                        nasional dan internasional.
+                    <p class="text-gray-600 font-light leading-relaxed text-lg">
+                        Menjadi Universitas terkemuka dalam pengembangan SDM seutuhnya yang berjiwa wirausaha pada skala nasional dan internasional.
                     </p>
                 </div>
-
-                <div class="profile-card">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="p-3 bg-yellow-50 text-yellow-600 rounded-xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
+                
+                <div class="glass-card p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-yellow-600">Misi</h4>
+                        <h4 class="text-2xl font-bold text-gray-900 tracking-tight">Misi Utama</h4>
                     </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start group">
-                            <span
-                                class="mr-3 mt-1.5 w-2 h-2 rounded-full bg-unmerBlue shrink-0 transition-transform group-hover:scale-150"></span>
-                            <p class="text-gray-600 leading-relaxed">Menyelenggarakan program pendidikan tinggi yang
-                                berkualitas untuk menghasilkan lulusan kompeten, berjiwa wirausaha, dan berdaya
-                                saing internasional.</p>
-                        </li>
-                        <li class="flex items-start group">
-                            <span
-                                class="mr-3 mt-1.5 w-2 h-2 rounded-full bg-unmerBlue shrink-0 transition-transform group-hover:scale-150"></span>
-                            <p class="text-gray-600 leading-relaxed">Menyelenggarakan kegiatan penelitian,
-                                pengabdian masyarakat, dan publikasi ilmiah bereputasi nasional maupun
-                                internasional.</p>
-                        </li>
-                        <li class="flex items-start group">
-                            <span
-                                class="mr-3 mt-1.5 w-2 h-2 rounded-full bg-unmerBlue shrink-0 transition-transform group-hover:scale-150"></span>
-                            <p class="text-gray-600 leading-relaxed">Melaksanakan tata kelola universitas berbasis
-                                Sistem Informasi Manajemen sebagai Decision Support System (DSS).</p>
-                        </li>
+                    <ul class="space-y-4 text-gray-600 font-light leading-relaxed list-none text-[15px]">
+                        <li class="flex items-start gap-4"><div class="w-2 h-2 mt-2 rounded-full bg-orange-400 shrink-0"></div>Menyelenggarakan program pendidikan tinggi berkualitas bereputasi.</li>
+                        <li class="flex items-start gap-4"><div class="w-2 h-2 mt-2 rounded-full bg-orange-400 shrink-0"></div>Menyelenggarakan kegiatan penelitian dan publikasi ilmiah unggul.</li>
+                        <li class="flex items-start gap-4"><div class="w-2 h-2 mt-2 rounded-full bg-orange-400 shrink-0"></div>Melaksanakan tata kelola universitas yang cerdas berbasis Sistem Informasi Manajemen.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </main>
 
-    <section class="relative h-[400px] flex items-center justify-center text-center">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style="background-image: url('{{ asset('unmer.jpeg') }}');">
-            <div class="absolute inset-0 bg-black/60"></div>
-        </div>
-
-        <div class="relative z-10 px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 uppercase tracking-wider">
-                Hubungi Kami
-            </h2>
-            <p class="text-gray-200 text-lg max-w-2xl mx-auto mb-8">
-                Pusat Teknologi Informasi dan Multimedia (PUSIM) <br>
-                Gedung Rektorat Lt. 1, Universitas Merdeka Malang
-            </p>
-            <a href="{{ url('/contact') }}"
-                class="bg-unmerBlue hover:bg-unmerDark text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg inline-block">
-                Lihat Kontak Detail
-            </a>
-        </div>
-    </section>
-
-    <footer class="bg-black py-8 mt-auto">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-white text-sm tracking-wide opacity-80">
-                Copyright Universitas Merdeka Malang &copy; 2026. All rights reserved.
-            </p>
+    <footer class="bg-black py-6 border-t border-white/10 mt-auto">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+            <div class="flex items-center space-x-3 mb-3 md:mb-0">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black font-bold text-xs shadow-sm">P</div>
+                <span class="text-white font-semibold tracking-widest text-sm">PUSIM UNMER</span>
+            </div>
+            <div class="text-gray-400 text-xs font-medium tracking-wide flex flex-col md:flex-row gap-1 md:gap-4">
+                <span>&copy; {{ date('Y') }} Universitas Merdeka Malang. Semua Hak Cipta Dilindungi.</span>
+                <span class="hidden md:inline">|</span>
+                <span>Dikelola oleh Pusat Teknologi Informasi & Multimedia.</span>
+            </div>
         </div>
     </footer>
-
 </body>
-
 </html>

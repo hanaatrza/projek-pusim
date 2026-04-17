@@ -5,123 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact PUSIM - Universitas Merdeka Malang</title>
-
     <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        unmerBlue: '#206d94',
-                        unmerDark: '#1a4f6b',
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                }
-            }
+            theme: { extend: { colors: { unmerBlue: '#1c5e82', unmerDark: '#0f3d59' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } }
         }
     </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(28, 94, 130, 0.7) 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 1);
+            border-radius: 1.5rem;
+            transition: all 0.4s ease;
+            border: 1px solid #f3f4f6;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            border-color: #1c5e8230;
+        }
+
+        .btn-elegant {
+            background: linear-gradient(135deg, #1c5e82 0%, #0f3d59 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-elegant:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(28, 94, 130, 0.3);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
-
-    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-
-            <div class="flex items-center space-x-3 flex-1">
-                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-12 w-auto">
-                <h1
-                    class="font-bold text-lg tracking-tight text-gray-800 uppercase hidden md:block border-l-2 border-gray-200 pl-3">
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen selection:bg-unmerBlue selection:text-white">
+    <header class="glass-nav sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-11 w-auto rounded-md shadow-sm">
+                <h1 class="font-bold text-sm md:text-base tracking-widest text-gray-900 uppercase hidden md:block border-l-2 border-unmerBlue/30 pl-4 py-1">
                     Universitas Merdeka Malang
                 </h1>
             </div>
-
-            <nav
-                class="hidden lg:flex items-center justify-center space-x-6 text-sm font-semibold text-gray-600 flex-1">
+            <nav class="hidden lg:flex items-center justify-center space-x-10 text-sm font-semibold tracking-wide text-gray-500">
                 <a href="{{ url('/') }}" class="hover:text-unmerBlue transition-colors">Beranda</a>
                 <a href="{{ url('/profil') }}" class="hover:text-unmerBlue transition-colors">Profil</a>
                 <a href="{{ url('/layanan') }}" class="hover:text-unmerBlue transition-colors">Layanan</a>
                 <a href="{{ url('/panduan') }}" class="hover:text-unmerBlue transition-colors">Panduan</a>
-                <a href="{{ url('/contact') }}" class="text-unmerBlue border-b-2 border-unmerBlue pb-1">Contact</a>
-                <a href="{{ url('/login') }}" class="font-bold text-blue-600 hover:text-blue-800 ml-4">Login</a>
+                <a href="{{ url('/contact') }}" class="text-unmerBlue">Contact</a>
             </nav>
-
-            <div class="hidden sm:flex flex-1 justify-end">
-                <div class="relative w-48">
-                    <input type="text" placeholder="Cari..."
-                        class="pl-4 pr-10 py-2 bg-gray-100 border-transparent rounded-full focus:bg-white focus:ring-2 focus:ring-unmerBlue text-sm w-full transition-all outline-none">
-                    <div class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </div>
-                </div>
+            <div class="hidden sm:flex items-center">
+                <a href="{{ url('/login') }}" class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Login Portal</a>
             </div>
-
-            <button class="lg:hidden p-2 text-gray-600 ml-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+            <button class="lg:hidden p-2 text-gray-800">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
     </header>
 
-    <section class="relative h-[450px] flex items-center justify-center text-center text-white">
-        <div class="absolute inset-0 bg-cover bg-center"
-            style="background-image: url('{{ asset('images/unmer.jpg') }}');">
-            <div class="absolute inset-0 bg-black/60"></div>
-        </div>
-        <div class="relative z-10 px-4">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight uppercase tracking-wider">
-                HUBUNGI KAMI
-            </h2>
-            <p class="text-gray-200 text-lg md:text-xl font-medium tracking-wide uppercase">
-                Pusat Teknologi Informasi dan Multimedia (PUSIM)
-            </p>
+    <section class="relative h-[450px] lg:h-[500px] flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
+            style="background-image: url('{{ asset('images/unmer.jpg') }}');"></div>
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center">
+            <span
+                class="px-4 py-1 rounded-full border border-white/20 bg-white/10 text-white/90 text-[10px] font-bold tracking-[0.3em] uppercase mb-5">Layanan
+                Informasi</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">Hubungi Kami</h2>
+            <p class="text-blue-50 text-xl font-light tracking-wide max-w-2xl">Layanan representatif Pusat Teknologi
+                Informasi dan Multimedia.</p>
         </div>
     </section>
 
-    <main class="flex-grow py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 uppercase tracking-tight">Informasi Kontak
-            </h2>
-
+    <main class="flex-grow bg-gray-50/50 py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-5xl relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-unmerBlue shadow-sm transition hover:shadow-md">
-                    <strong class="block text-unmerBlue text-xs uppercase tracking-widest mb-3">Alamat</strong>
-                    <p class="text-gray-700 leading-relaxed text-sm">Gedung Rektorat Lt. 1, Universitas Merdeka Malang</p>
+                <div class="glass-card p-10 text-center flex flex-col items-center justify-center group cursor-default">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-blue-50 text-unmerBlue flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-lg transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-3">Kantor Pusat</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Gedung Rektorat Lt. 1<br>Universitas Merdeka
+                        Malang</p>
                 </div>
 
-                <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-unmerBlue shadow-sm transition hover:shadow-md">
-                    <strong class="block text-unmerBlue text-xs uppercase tracking-widest mb-3">Telepon</strong>
-                    <p class="text-gray-700 leading-relaxed text-sm">0341-568395</p>
+                <div class="glass-card p-10 text-center flex flex-col items-center justify-center group cursor-default">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-lg transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-3">Layanan Telepon</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">0341-568395<br><span
+                            class="text-xs text-gray-400 mt-1 block">Senin - Jumat, 08:30 - 15:00 WIB</span></p>
                 </div>
 
-                <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-unmerBlue shadow-sm transition hover:shadow-md">
-                    <strong class="block text-unmerBlue text-xs uppercase tracking-widest mb-3">Email Support</strong>
-                    <p class="text-gray-700 leading-relaxed text-sm italic">pusim@unmer.ac.id</p>
+                <div class="glass-card p-10 text-center flex flex-col items-center justify-center group cursor-default">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-teal-50 text-teal-500 flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-lg transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-3">Email</h3>
+                    <p class="text-gray-500 font-light leading-relaxed truncate max-w-full">pusim@unmer.ac.id<br><span
+                            class="text-xs text-gray-400 mt-1 block">Respon dalam 1x24 jam harian</span></p>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-black py-8 mt-auto">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-white text-sm tracking-wide opacity-80">
-                Copyright Universitas Merdeka Malang &copy; 2026. All rights reserved.
-            </p>
+    <footer class="bg-black py-6 border-t border-white/10 mt-auto">
+        <div
+            class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+            <div class="flex items-center space-x-3 mb-3 md:mb-0">
+                <div
+                    class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black font-bold text-xs shadow-sm">
+                    P</div>
+                <span class="text-white font-semibold tracking-widest text-sm">PUSIM UNMER</span>
+            </div>
+            <div class="text-gray-400 text-xs font-medium tracking-wide flex flex-col md:flex-row gap-1 md:gap-4">
+                <span>&copy; {{ date('Y') }} Universitas Merdeka Malang. Semua Hak Cipta Dilindungi.</span>
+                <span class="hidden md:inline">|</span>
+                <span>Dikelola oleh Pusat Teknologi Informasi & Multimedia.</span>
+            </div>
         </div>
     </footer>
-
 </body>
 
 </html>
