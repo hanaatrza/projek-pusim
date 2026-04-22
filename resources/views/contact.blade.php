@@ -54,12 +54,14 @@
     <header class="glass-nav sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <img src="{{ asset('images/logo-unmer.jpeg') }}" alt="Logo" class="h-11 w-auto rounded-md shadow-sm">
-                <h1 class="font-bold text-sm md:text-base tracking-widest text-gray-900 uppercase hidden md:block border-l-2 border-unmerBlue/30 pl-4 py-1">
-                    Universitas Merdeka Malang
+                <img src="{{ asset('images/logo(1).png') }}" alt="Logo" class="h-11 w-auto rounded-md shadow-sm">
+                <h1
+                    class="font-bold text-sm md:text-base tracking-widest text-gray-900 uppercase hidden md:block border-l-2 border-unmerBlue/30 pl-4 py-1">
+
                 </h1>
             </div>
-            <nav class="hidden lg:flex items-center justify-center space-x-10 text-sm font-semibold tracking-wide text-gray-500">
+            <nav
+                class="hidden lg:flex items-center justify-center space-x-10 text-sm font-semibold tracking-wide text-gray-500">
                 <a href="{{ url('/') }}" class="hover:text-unmerBlue transition-colors">Beranda</a>
                 <a href="{{ url('/profil') }}" class="hover:text-unmerBlue transition-colors">Profil</a>
                 <a href="{{ url('/layanan') }}" class="hover:text-unmerBlue transition-colors">Layanan</a>
@@ -67,7 +69,8 @@
                 <a href="{{ url('/contact') }}" class="text-unmerBlue">Contact</a>
             </nav>
             <div class="hidden sm:flex items-center">
-                <a href="{{ url('/login') }}" class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Login Portal</a>
+                <a href="{{ url('/login') }}"
+                    class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Login Portal</a>
             </div>
             <button class="lg:hidden p-2 text-gray-800">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
