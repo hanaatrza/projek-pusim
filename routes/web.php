@@ -32,6 +32,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/layanan', [TicketController::class, 'index'])->name('layanan.index');
     Route::post('/dashboard/tickets', [TicketController::class, 'store'])->name('tickets.store');
 
     Route::get('/dashboard/basis-pengetahuan', function () {

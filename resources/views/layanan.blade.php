@@ -74,8 +74,13 @@
                 <a href="{{ url('/contact') }}" class="hover:text-unmerBlue transition-colors">Contact</a>
             </nav>
             <div class="hidden sm:flex items-center">
-                <a href="{{ url('/login') }}"
-                    class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Login Portal</a>
+                @auth
+                    <a href="{{ url('/dashboard') }}"
+                        class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Dashboard</a>
+                @else
+                    <a href="{{ url('/login') }}"
+                        class="text-sm font-bold text-white btn-elegant px-7 py-2.5 rounded-full">Login Portal</a>
+                @endauth
             </div>
             <button class="lg:hidden p-2 text-gray-800"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">

@@ -244,7 +244,7 @@
                 <!-- Dashboard Widgets / Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 animate-fade-in-up" style="animation-delay: 0.1s;">
                     <!-- Card 1 -->
-                    <div class="glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'semua']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
                             <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -255,10 +255,10 @@
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $totalLayanan }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Total Layanan Diajukan</p>
-                    </div>
+                    </a>
 
                     <!-- Card 2 -->
-                    <div class="glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'menunggu']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
                             <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -269,10 +269,10 @@
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $layananMenunggu }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Layanan Menunggu</p>
-                    </div>
+                    </a>
 
                     <!-- Card 3 -->
-                    <div class="glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'selesai']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
                             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -283,10 +283,10 @@
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $layananSelesai }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Layanan Selesai</p>
-                    </div>
+                    </a>
 
                     <!-- Card 4 -->
-                    <div class="glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'notifikasi']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
                             <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -297,7 +297,7 @@
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $notifikasiBaru }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Notifikasi Baru</p>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Main Data Grid -->
