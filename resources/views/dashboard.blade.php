@@ -83,10 +83,6 @@
         <!-- Logo -->
         <div class="px-7 py-6 border-b border-gray-100/80 flex items-center gap-4">
             <img src="{{ asset('images/logo(1).png') }}" alt="Logo PUSIM" class="h-10 w-auto rounded-lg shadow-sm">
-            <div class="flex flex-col">
-                <span class="font-bold text-gray-900 tracking-wide text-sm leading-tight">PUSIM</span>
-                <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Unmer Malang</span>
-            </div>
         </div>
         
         <!-- Navigation Menu -->
