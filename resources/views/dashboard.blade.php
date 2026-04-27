@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PUSIM Universitas Merdeka Malang</title>
     <link rel="icon" type="image/x-icon" href="https://laravel.com/img/favicon/favicon-32x32.png">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -38,39 +39,46 @@
             }
         }
     </script>
-    
+
     <style>
         .glass-panel {
             background: rgba(255, 255, 255, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
         }
+
         .btn-elegant {
             background: linear-gradient(135deg, #1c5e82 0%, #0f3d59 100%);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .btn-elegant:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px -5px rgba(28, 94, 130, 0.3);
         }
+
         /* Custom scrollbar for main content */
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-track {
             background: transparent;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: rgba(156, 163, 175, 0.5);
             border-radius: 10px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: rgba(107, 114, 128, 0.8);
         }
     </style>
 </head>
 
-<body class="bg-[#f4f7f9] text-gray-800 font-sans antialiased flex h-screen overflow-hidden selection:bg-unmerBlue selection:text-white">
+<body
+    class="bg-[#f4f7f9] text-gray-800 font-sans antialiased flex h-screen overflow-hidden selection:bg-unmerBlue selection:text-white">
 
     <!-- Decorative Background Shapes -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -79,12 +87,13 @@
     </div>
 
     <!-- Sidebar (Desktop) -->
-    <aside class="w-72 bg-white/95 backdrop-blur-md border-r border-gray-200/50 flex-col justify-between hidden lg:flex h-full z-50 shadow-sm shrink-0 relative">
+    <aside
+        class="w-72 bg-white/95 backdrop-blur-md border-r border-gray-200/50 flex-col justify-between hidden lg:flex h-full z-50 shadow-sm shrink-0 relative">
         <!-- Logo -->
         <div class="px-7 py-6 border-b border-gray-100/80 flex items-center gap-4">
             <img src="{{ asset('images/logo(1).png') }}" alt="Logo PUSIM" class="h-10 w-auto rounded-lg shadow-sm">
         </div>
-        
+
         <!-- Navigation Menu -->
         <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto custom-scrollbar">
             <p class="px-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-4">Navigasi Utama</p>
@@ -124,36 +133,41 @@
             </div>
 
             <!-- Right Side (Auth & Date) -->
-            <div class="flex items-center gap-5">
-                <div class="hidden md:flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg border border-gray-100 text-gray-500 shadow-sm">
+            <div class="flex items-center gap-3 md:gap-5">
+                <a href="{{ url('/') }}" class="flex items-center gap-2 px-3 md:px-4 py-2 bg-blue-50 hover:bg-blue-100 text-unmerBlue rounded-xl border border-blue-100 transition-colors font-bold text-xs shadow-sm group">
+                    <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <span class="hidden sm:inline">Kembali ke Beranda</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 text-gray-500 shadow-sm">
                     <svg class="w-4 h-4 text-unmerBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     <span class="text-[11px] font-bold tracking-wider uppercase">{{ now()->format('l, d M Y') }}</span>
                 </div>
                 
                 @auth
-                <div class="flex items-center gap-3 bg-white pl-3 pr-2 py-2 rounded-xl shadow-sm border border-gray-200 transition-all hover:shadow-md">
-                    <div class="w-8 h-8 rounded-lg bg-unmerBlue/10 text-unmerBlue flex items-center justify-center font-bold text-sm shadow-sm">
-                        {{ substr(Auth::user()->name, 0, 1) }}
+                    <div class="flex items-center gap-3 bg-white pl-3 pr-2 py-2 rounded-xl shadow-sm border border-gray-200 transition-all hover:shadow-md">
+                        <div class="w-8 h-8 rounded-lg bg-unmerBlue/10 text-unmerBlue flex items-center justify-center font-bold text-sm shadow-sm">
+                            {{ substr(Auth::user()->name, 0, 1) }}
+                        </div>
+                        <div class="hidden sm:block text-left mr-2">
+                            <p class="text-xs font-bold text-gray-800 leading-tight truncate max-w-[120px]">{{ Auth::user()->name }}</p>
+                        </div>
+
+                        <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
+
+                        <form action="{{ route('logout') }}" method="POST" class="inline-flex m-0 p-0">
+                            @csrf
+                            <button type="submit" class="text-gray-400 hover:text-red-500 p-1.5 rounded-lg hover:bg-red-50 transition-colors" title="Logout">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                            </button>
+                        </form>
                     </div>
-                    <div class="hidden sm:block text-left mr-2">
-                        <p class="text-xs font-bold text-gray-800 leading-tight truncate max-w-[120px]">{{ Auth::user()->name }}</p>
-                    </div>
-                    
-                    <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
-                    
-                    <form action="{{ route('logout') }}" method="POST" class="inline-flex m-0 p-0">
-                        @csrf
-                        <button type="submit" class="text-gray-400 hover:text-red-500 p-1.5 rounded-lg hover:bg-red-50 transition-colors" title="Logout">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                        </button>
-                    </form>
-                </div>
                 @else
-                <a href="{{ url('/login') }}" class="text-sm font-bold text-white btn-elegant px-5 py-2.5 rounded-xl shadow-sm">
-                    Login Portal
-                </a>
+                    <a href="{{ url('/login') }}" class="text-sm font-bold text-white btn-elegant px-5 py-2.5 rounded-xl shadow-sm">
+                        Login Portal
+                    </a>
                 @endauth
             </div>
         </header>
@@ -163,15 +177,15 @@
             <div class="max-w-[1400px] mx-auto space-y-8">
 
                 @if (session('success'))
-                <div class="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl relative flex items-center gap-3 shadow-sm animate-fade-in-up" role="alert">
-                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="block sm:inline font-medium text-sm">{{ session('success') }}</span>
-                    <button type="button" class="absolute top-1/2 -translate-y-1/2 right-4 text-green-500 hover:text-green-700 p-1 rounded-full hover:bg-green-100 transition-colors" onclick="this.parentElement.style.display='none'">
-                        <svg class="fill-current h-5 w-5" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" /></svg>
-                    </button>
-                </div>
+                    <div class="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl relative flex items-center gap-3 shadow-sm animate-fade-in-up" role="alert">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="block sm:inline font-medium text-sm">{{ session('success') }}</span>
+                        <button type="button" class="absolute top-1/2 -translate-y-1/2 right-4 text-green-500 hover:text-green-700 p-1 rounded-full hover:bg-green-100 transition-colors" onclick="this.parentElement.style.display='none'">
+                            <svg class="fill-current h-5 w-5" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" /></svg>
+                        </button>
+                    </div>
                 @endif
 
                 <!-- Welcome Banner -->
