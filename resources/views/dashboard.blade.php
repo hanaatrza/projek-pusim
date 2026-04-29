@@ -97,10 +97,14 @@
         <!-- Navigation Menu -->
         <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto custom-scrollbar">
             <p class="px-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-4">Navigasi Utama</p>
-            
-            <a href="{{ url('/dashboard') }}" class="flex items-center gap-3 px-3.5 py-3 text-unmerBlue bg-blue-50/80 rounded-xl transition-all font-bold shadow-sm border border-blue-100/50">
+
+            <a href="{{ url('/dashboard') }}"
+                class="flex items-center gap-3 px-3.5 py-3 text-unmerBlue bg-blue-50/80 rounded-xl transition-all font-bold shadow-sm border border-blue-100/50">
                 <div class="w-8 h-8 rounded-lg bg-unmerBlue text-white flex items-center justify-center shadow-inner">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
                 </div>
                 Dashboard
             </a>
@@ -108,24 +112,28 @@
 
         <!-- Sidebar Footer Info -->
         <div class="p-4 border-t border-gray-100 bg-gray-50/30 text-center">
-            <p class="text-[10px] text-gray-400 font-medium">Sistem Informasi PUSIM<br>&copy; {{ date('Y') }} Unmer Malang</p>
+            <p class="text-[10px] text-gray-400 font-medium">Sistem Informasi PUSIM<br>&copy; {{ date('Y') }} Unmer
+                Malang</p>
         </div>
     </aside>
 
     <!-- Main Content Wrapper -->
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden relative z-10">
-        
+
         <!-- Top Navbar -->
-        <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-200/60 px-6 py-4 flex items-center justify-between shadow-sm shrink-0">
+        <header
+            class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-200/60 px-6 py-4 flex items-center justify-between shadow-sm shrink-0">
             <!-- Left Side -->
             <div class="flex items-center gap-4">
-                <button class="lg:hidden p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-unmerBlue/50">
+                <button
+                    class="lg:hidden p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-unmerBlue/50">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
                     </svg>
                 </button>
                 <img src="{{ asset('images/logo(1).png') }}" alt="Logo" class="h-8 w-auto lg:hidden">
-                
+
                 <div class="hidden lg:flex items-center gap-3">
                     <div class="w-1.5 h-6 bg-unmerBlue rounded-full"></div>
                     <h2 class="text-xl font-bold tracking-tight text-gray-900">Dashboard Area</h2>
@@ -134,38 +142,54 @@
 
             <!-- Right Side (Auth & Date) -->
             <div class="flex items-center gap-3 md:gap-5">
-                <a href="{{ url('/') }}" class="flex items-center gap-2 px-3 md:px-4 py-2 bg-blue-50 hover:bg-blue-100 text-unmerBlue rounded-xl border border-blue-100 transition-colors font-bold text-xs shadow-sm group">
-                    <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <a href="{{ url('/') }}"
+                    class="flex items-center gap-2 px-3 md:px-4 py-2 bg-blue-50 hover:bg-blue-100 text-unmerBlue rounded-xl border border-blue-100 transition-colors font-bold text-xs shadow-sm group">
+                    <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
                     <span class="hidden sm:inline">Kembali ke Beranda</span>
                 </a>
 
-                <div class="hidden md:flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 text-gray-500 shadow-sm">
-                    <svg class="w-4 h-4 text-unmerBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div
+                    class="hidden md:flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 text-gray-500 shadow-sm">
+                    <svg class="w-4 h-4 text-unmerBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
                     <span class="text-[11px] font-bold tracking-wider uppercase">{{ now()->format('l, d M Y') }}</span>
                 </div>
-                
+
                 @auth
-                    <div class="flex items-center gap-3 bg-white pl-3 pr-2 py-2 rounded-xl shadow-sm border border-gray-200 transition-all hover:shadow-md">
-                        <div class="w-8 h-8 rounded-lg bg-unmerBlue/10 text-unmerBlue flex items-center justify-center font-bold text-sm shadow-sm">
-                            {{ substr(Auth::user()->name, 0, 1) }}
-                        </div>
-                        <div class="hidden sm:block text-left mr-2">
-                            <p class="text-xs font-bold text-gray-800 leading-tight truncate max-w-[120px]">{{ Auth::user()->name }}</p>
-                        </div>
+                    <div class="relative">
+                        <button onclick="toggleDropdown()"
+                            class="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-unmerBlue focus:ring-offset-2 transition-all hover:ring-2"
+                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">Open User Menu</span>
+                            <img class="h-8 w-8 rounded-full object-contain bg-white border border-gray-200 p-0.5"
+                                src="{{ asset('images/logo(1).png') }}" alt="{{ Auth::user()->name }}">
+                        </button>
 
-                        <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
-
-                        <form action="{{ route('logout') }}" method="POST" class="inline-flex m-0 p-0">
-                            @csrf
-                            <button type="submit" class="text-gray-400 hover:text-red-500 p-1.5 rounded-lg hover:bg-red-50 transition-colors" title="Logout">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                            </button>
-                        </form>
+                        <!-- Dropdown Menu -->
+                        <div id="profileDropdown"
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 opacity-0 invisible transform scale-95 transition-all duration-200 origin-top-right z-50">
+                            <a href="{{ route('profile.edit') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Pengaturan
+                                Profil</a>
+                            <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
+                                @csrf
+                                <button type="submit"
+                                    class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Log
+                                    Out</button>
+                            </form>
+                        </div>
                     </div>
                 @else
-                    <a href="{{ url('/login') }}" class="text-sm font-bold text-white btn-elegant px-5 py-2.5 rounded-xl shadow-sm">
+                    <a href="{{ url('/login') }}"
+                        class="text-sm font-bold text-white btn-elegant px-5 py-2.5 rounded-xl shadow-sm">
                         Login Portal
                     </a>
                 @endauth
@@ -177,98 +201,153 @@
             <div class="max-w-[1400px] mx-auto space-y-8">
 
                 @if (session('success'))
-                    <div class="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl relative flex items-center gap-3 shadow-sm animate-fade-in-up" role="alert">
+                    <div class="bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl relative flex items-center gap-3 shadow-sm animate-fade-in-up"
+                        role="alert">
                         <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
                         </svg>
                         <span class="block sm:inline font-medium text-sm">{{ session('success') }}</span>
-                        <button type="button" class="absolute top-1/2 -translate-y-1/2 right-4 text-green-500 hover:text-green-700 p-1 rounded-full hover:bg-green-100 transition-colors" onclick="this.parentElement.style.display='none'">
-                            <svg class="fill-current h-5 w-5" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" /></svg>
+                        <button type="button"
+                            class="absolute top-1/2 -translate-y-1/2 right-4 text-green-500 hover:text-green-700 p-1 rounded-full hover:bg-green-100 transition-colors"
+                            onclick="this.parentElement.style.display='none'">
+                            <svg class="fill-current h-5 w-5" role="button" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <title>Close</title>
+                                <path
+                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                            </svg>
                         </button>
                     </div>
                 @endif
 
                 <!-- Welcome Banner -->
-                <div class="bg-gradient-to-br from-[#1c5e82] via-[#164a66] to-[#0f3d59] rounded-3xl shadow-[0_20px_40px_-15px_rgba(28,94,130,0.4)] p-8 md:p-12 text-white relative overflow-hidden animate-fade-in-up">
-                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+                <div
+                    class="bg-gradient-to-br from-[#1c5e82] via-[#164a66] to-[#0f3d59] rounded-3xl shadow-[0_20px_40px_-15px_rgba(28,94,130,0.4)] p-8 md:p-12 text-white relative overflow-hidden animate-fade-in-up">
+                    <div
+                        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay">
+                    </div>
                     <div class="relative z-10 w-full lg:w-2/3">
-                        <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-lg text-[10px] font-bold tracking-wider uppercase mb-5 inline-block backdrop-blur-sm">Akses Utama</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">Selamat Datang,<br>{{ Auth::user()->name ?? 'Pengguna' }} 👋</h2>
-                        <p class="text-blue-100/90 text-lg font-light mb-8 max-w-xl leading-relaxed">Kelola layanan akademik dan dapatkan bantuan teknis PUSIM Unmer Malang dengan mudah dan cepat.</p>
-                        
+                        <span
+                            class="px-3 py-1 bg-white/10 border border-white/20 rounded-lg text-[10px] font-bold tracking-wider uppercase mb-5 inline-block backdrop-blur-sm">Akses
+                            Utama</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">Selamat
+                            Datang,<br>{{ Auth::user()->name ?? 'Pengguna' }} 👋</h2>
+                        <p class="text-blue-100/90 text-lg font-light mb-8 max-w-xl leading-relaxed">Kelola layanan
+                            akademik dan dapatkan bantuan teknis PUSIM Unmer Malang dengan mudah dan cepat.</p>
+
                         <div class="flex flex-wrap gap-4">
-                            <button onclick="openModal()" class="bg-white text-unmerDark px-6 py-3.5 rounded-xl font-bold shadow-lg hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            <button onclick="openModal()"
+                                class="bg-white text-unmerDark px-6 py-3.5 rounded-xl font-bold shadow-lg hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
                                 Ajukan Layanan
                             </button>
-                            <a href="{{ url('/dashboard/basis-pengetahuan') }}" class="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white px-6 py-3.5 rounded-xl font-bold transition-all duration-300 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            <a href="{{ url('/dashboard/basis-pengetahuan') }}"
+                                class="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white px-6 py-3.5 rounded-xl font-bold transition-all duration-300 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                    </path>
+                                </svg>
                                 Eksplor Panduan
                             </a>
                         </div>
                     </div>
 
                     <!-- Decorative elements -->
-                    <div class="absolute -right-10 -bottom-10 h-[400px] w-[400px] hidden lg:flex items-center justify-center opacity-20 transform rotate-12">
+                    <div
+                        class="absolute -right-10 -bottom-10 h-[400px] w-[400px] hidden lg:flex items-center justify-center opacity-20 transform rotate-12">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                            <path fill="#ffffff" d="M48,-62.8C62.4,-51.7,74.5,-38.3,80.7,-22.4C86.9,-6.5,87.1,12,79.5,27.5C71.9,43.1,56.5,55.8,40.6,63.1C24.7,70.5,8.2,72.6,-8,71.1C-24.2,69.5,-40.1,64.2,-52.1,53.2C-64,42.3,-71.9,25.7,-74.6,8.6C-77.4,-8.6,-74.9,-26.4,-65,-40.5C-55.2,-54.7,-38,-65.3,-22.1,-70.6C-6.2,-75.8,8.2,-75.7,21.5,-73.2C34.8,-70.8,47,-66.1,48,-62.8Z" transform="translate(100 100)" />
+                            <path fill="#ffffff"
+                                d="M48,-62.8C62.4,-51.7,74.5,-38.3,80.7,-22.4C86.9,-6.5,87.1,12,79.5,27.5C71.9,43.1,56.5,55.8,40.6,63.1C24.7,70.5,8.2,72.6,-8,71.1C-24.2,69.5,-40.1,64.2,-52.1,53.2C-64,42.3,-71.9,25.7,-74.6,8.6C-77.4,-8.6,-74.9,-26.4,-65,-40.5C-55.2,-54.7,-38,-65.3,-22.1,-70.6C-6.2,-75.8,8.2,-75.7,21.5,-73.2C34.8,-70.8,47,-66.1,48,-62.8Z"
+                                transform="translate(100 100)" />
                         </svg>
                     </div>
                 </div>
 
                 <!-- Dashboard Widgets / Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 animate-fade-in-up"
+                    style="animation-delay: 0.1s;">
                     <!-- Card 1 -->
-                    <a href="{{ route('layanan.index', ['filter' => 'semua']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'semua']) }}"
+                        class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                             </div>
-                            <span class="text-[10px] font-bold px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg tracking-wide border border-blue-100">+2 Hari Ini</span>
+                            <span
+                                class="text-[10px] font-bold px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg tracking-wide border border-blue-100">+2
+                                Hari Ini</span>
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $totalLayanan }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Total Layanan Diajukan</p>
                     </a>
 
                     <!-- Card 2 -->
-                    <a href="{{ route('layanan.index', ['filter' => 'menunggu']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'menunggu']) }}"
+                        class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="text-[10px] font-bold px-2.5 py-1 bg-orange-50 text-orange-600 rounded-lg tracking-wide border border-orange-100">Dalam Proses</span>
+                            <span
+                                class="text-[10px] font-bold px-2.5 py-1 bg-orange-50 text-orange-600 rounded-lg tracking-wide border border-orange-100">Dalam
+                                Proses</span>
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $layananMenunggu }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Layanan Menunggu</p>
                     </a>
 
                     <!-- Card 3 -->
-                    <a href="{{ route('layanan.index', ['filter' => 'selesai']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'selesai']) }}"
+                        class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="text-[10px] font-bold px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-lg tracking-wide border border-emerald-100">Bulan Ini</span>
+                            <span
+                                class="text-[10px] font-bold px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-lg tracking-wide border border-emerald-100">Bulan
+                                Ini</span>
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $layananSelesai }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Layanan Selesai</p>
                     </a>
 
                     <!-- Card 4 -->
-                    <a href="{{ route('layanan.index', ['filter' => 'notifikasi']) }}" class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <a href="{{ route('layanan.index', ['filter' => 'notifikasi']) }}"
+                        class="block glass-panel bg-white rounded-3xl p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                                 </svg>
                             </div>
-                            <span class="text-[10px] font-bold px-2.5 py-1 bg-red-50 text-red-600 rounded-lg tracking-wide border border-red-100">Penting</span>
+                            <span
+                                class="text-[10px] font-bold px-2.5 py-1 bg-red-50 text-red-600 rounded-lg tracking-wide border border-red-100">Penting</span>
                         </div>
                         <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">{{ $notifikasiBaru }}</h3>
                         <p class="text-gray-500 text-sm mt-1 font-medium">Notifikasi Baru</p>
@@ -276,24 +355,30 @@
                 </div>
 
                 <!-- Main Data Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-up" style="animation-delay: 0.2s;">
-                    
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-up"
+                    style="animation-delay: 0.2s;">
+
                     <!-- Recent Activity Table Component -->
-                    <div class="lg:col-span-2 glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
-                        <div class="px-7 py-6 border-b border-gray-100 bg-white/70 flex justify-between items-center z-10 sticky top-0">
+                    <div
+                        class="lg:col-span-2 glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
+                        <div
+                            class="px-7 py-6 border-b border-gray-100 bg-white/70 flex justify-between items-center z-10 sticky top-0">
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 tracking-tight">Aktivitas Terkini</h3>
-                                <p class="text-xs text-gray-500 mt-1 font-medium">Riwayat Pengajuan Layanan Terakhir Anda</p>
+                                <p class="text-xs text-gray-500 mt-1 font-medium">Riwayat Pengajuan Layanan Terakhir
+                                    Anda</p>
                             </div>
-                            <a href="#" class="text-xs font-bold text-unmerBlue hover:text-white transition-colors bg-blue-50 hover:bg-unmerBlue px-4 py-2 rounded-lg border border-blue-100 shadow-sm">
+                            <a href="#"
+                                class="text-xs font-bold text-unmerBlue hover:text-white transition-colors bg-blue-50 hover:bg-unmerBlue px-4 py-2 rounded-lg border border-blue-100 shadow-sm">
                                 Lihat Semua
                             </a>
                         </div>
-                        
+
                         <div class="overflow-x-auto flex-grow custom-scrollbar">
                             <table class="w-full text-left border-collapse min-w-[600px]">
                                 <thead>
-                                    <tr class="bg-gray-50/80 text-[11px] text-gray-500 tracking-wider uppercase border-b border-gray-100">
+                                    <tr
+                                        class="bg-gray-50/80 text-[11px] text-gray-500 tracking-wider uppercase border-b border-gray-100">
                                         <th class="px-7 py-4 font-bold">Informasi Layanan</th>
                                         <th class="px-7 py-4 font-bold">Tanggal</th>
                                         <th class="px-7 py-4 font-bold">Status</th>
@@ -304,26 +389,35 @@
                                     @forelse($tickets as $ticket)
                                         <tr class="hover:bg-blue-50/40 transition-colors group">
                                             <td class="px-7 py-4">
-                                                <div class="font-bold text-gray-900 group-hover:text-unmerBlue transition-colors">{{ $ticket->judul }}</div>
-                                                <div class="text-gray-400 text-xs mt-1 font-mono tracking-wide">#{{ $ticket->ticket_number }}</div>
+                                                <div
+                                                    class="font-bold text-gray-900 group-hover:text-unmerBlue transition-colors">
+                                                    {{ $ticket->judul }}</div>
+                                                <div class="text-gray-400 text-xs mt-1 font-mono tracking-wide">
+                                                    #{{ $ticket->ticket_number }}</div>
                                             </td>
                                             <td class="px-7 py-4">
-                                                <div class="text-gray-600 font-medium text-sm">{{ $ticket->created_at->format('d M Y') }}</div>
-                                                <div class="text-gray-400 text-xs mt-0.5">{{ $ticket->created_at->format('H:i') }}</div>
+                                                <div class="text-gray-600 font-medium text-sm">
+                                                    {{ $ticket->created_at->format('d M Y') }}</div>
+                                                <div class="text-gray-400 text-xs mt-0.5">
+                                                    {{ $ticket->created_at->format('H:i') }}</div>
                                             </td>
                                             <td class="px-7 py-4">
                                                 @if($ticket->status == 'menunggu')
-                                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold bg-orange-50 text-orange-600 border border-orange-100 uppercase tracking-wider">
-                                                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                                                    <span
+                                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold bg-orange-50 text-orange-600 border border-orange-100 uppercase tracking-wider">
+                                                        <span
+                                                            class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
                                                         Menunggu
                                                     </span>
                                                 @elseif($ticket->status == 'diproses')
-                                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold bg-blue-50 text-blue-600 border border-blue-100 uppercase tracking-wider">
+                                                    <span
+                                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold bg-blue-50 text-blue-600 border border-blue-100 uppercase tracking-wider">
                                                         <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                                                         Diproses
                                                     </span>
                                                 @else
-                                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100 uppercase tracking-wider">
+                                                    <span
+                                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100 uppercase tracking-wider">
                                                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                                                         Selesai
                                                     </span>
@@ -331,15 +425,21 @@
                                             </td>
                                             <td class="px-7 py-4 text-center">
                                                 <button type="button" onclick="showTicketDetail(this)"
-                                                    data-judul="{{ $ticket->judul }}" data-nomor="{{ $ticket->ticket_number }}"
-                                                    data-kategori="{{ $ticket->kategori }}" data-status="{{ $ticket->status }}"
+                                                    data-judul="{{ $ticket->judul }}"
+                                                    data-nomor="{{ $ticket->ticket_number }}"
+                                                    data-kategori="{{ $ticket->kategori }}"
+                                                    data-status="{{ $ticket->status }}"
                                                     data-tanggal="{{ $ticket->created_at->format('d M Y, H:i') }}"
                                                     data-deskripsi="{{ $ticket->deskripsi }}"
                                                     class="inline-flex justify-center items-center text-gray-400 p-2 hover:bg-white hover:text-unmerBlue hover:shadow-sm border border-transparent hover:border-gray-200 rounded-xl transition-all"
                                                     title="Lihat Detail">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                                     </svg>
                                                 </button>
                                             </td>
@@ -347,13 +447,18 @@
                                     @empty
                                         <tr>
                                             <td colspan="4" class="p-12 text-center bg-gray-50/30">
-                                                <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-white shadow-sm mb-4 text-gray-300">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                                <div
+                                                    class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-white shadow-sm mb-4 text-gray-300">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="1.5"
+                                                            d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                                                     </svg>
                                                 </div>
                                                 <h4 class="text-gray-900 font-bold mb-1">Belum Ada Aktivitas</h4>
-                                                <p class="text-gray-500 text-sm">Anda belum mengajukan tiket layanan apapun.</p>
+                                                <p class="text-gray-500 text-sm">Anda belum mengajukan tiket layanan apapun.
+                                                </p>
                                             </td>
                                         </tr>
                                     @endforelse
@@ -367,61 +472,66 @@
                         <div class="px-6 py-6 border-b border-gray-100 bg-white/70">
                             <h3 class="text-xl font-bold text-gray-900 tracking-tight">Akses Cepat</h3>
                         </div>
-                        
+
                         <div class="p-5 space-y-3 flex-grow">
                             <!-- Menu 1 -->
-                            <a href="#" onclick="openModal(); return false;" class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-blue-50/80 transition-all duration-300 border border-gray-100 hover:border-blue-200 group shadow-sm hover:shadow-md">
-                                <div class="w-12 h-12 shrink-0 bg-white rounded-xl text-unmerBlue flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform border border-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            <a href="#" onclick="openModal(); return false;"
+                                class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-blue-50/80 transition-all duration-300 border border-gray-100 hover:border-blue-200 group shadow-sm hover:shadow-md">
+                                <div
+                                    class="w-12 h-12 shrink-0 bg-white rounded-xl text-unmerBlue flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform border border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                     </svg>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-bold text-gray-900 text-sm group-hover:text-unmerBlue transition-colors">Buat Tiket Baru</h4>
-                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Ajukan permohonan atau infokan kendala</p>
+                                    <h4
+                                        class="font-bold text-gray-900 text-sm group-hover:text-unmerBlue transition-colors">
+                                        Buat Tiket Baru</h4>
+                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Ajukan permohonan atau
+                                        infokan kendala</p>
                                 </div>
                             </a>
 
                             <!-- Menu 2 -->
-                            <a href="{{ route('profile.edit') }}" class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-white transition-all duration-300 border border-gray-100 hover:border-gray-200 group shadow-sm hover:shadow">
-                                <div class="w-12 h-12 shrink-0 bg-white rounded-xl text-gray-500 flex items-center justify-center shadow-sm group-hover:text-gray-800 transition-colors border border-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            <a href="{{ route('profile.edit') }}"
+                                class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-white transition-all duration-300 border border-gray-100 hover:border-gray-200 group shadow-sm hover:shadow">
+                                <div
+                                    class="w-12 h-12 shrink-0 bg-white rounded-xl text-gray-500 flex items-center justify-center shadow-sm group-hover:text-gray-800 transition-colors border border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-bold text-gray-900 text-sm transition-colors">Pengaturan Profil</h4>
-                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Perbarui data diri dan preferensi</p>
+                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Perbarui data diri dan
+                                        preferensi</p>
                                 </div>
                             </a>
 
-                            <!-- Menu 3 -->
-                            <a href="{{ url('/dashboard/basis-pengetahuan') }}" class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-white transition-all duration-300 border border-gray-100 hover:border-gray-200 group shadow-sm hover:shadow">
-                                <div class="w-12 h-12 shrink-0 bg-white rounded-xl text-gray-500 flex items-center justify-center shadow-sm group-hover:text-gray-800 transition-colors border border-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-bold text-gray-900 text-sm transition-colors">Basis Pengetahuan</h4>
-                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Telusuri solusi mandiri dan FAQ</p>
-                                </div>
-                            </a>
                         </div>
 
                         <!-- Live Support Widget -->
-                        <div class="px-6 py-5 mt-auto bg-emerald-50/80 flex items-center justify-between border-t border-emerald-100/50">
+                        <div
+                            class="px-6 py-5 mt-auto bg-emerald-50/80 flex items-center justify-between border-t border-emerald-100/50">
                             <div>
                                 <h4 class="font-bold text-sm text-emerald-800 flex items-center gap-2">
                                     <span class="relative flex h-2.5 w-2.5">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span
+                                            class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                                     </span>
                                     Live Support (WA)
                                 </h4>
-                                <p class="text-[10px] text-emerald-600 mt-1 font-medium">Bantuan darurat? Hubungi kami.</p>
+                                <p class="text-[10px] text-emerald-600 mt-1 font-medium">Bantuan darurat? Hubungi kami.
+                                </p>
                             </div>
-                            <a href="https://wa.me/6281234567890" target="_blank" class="shrink-0 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30">
+                            <a href="https://wa.me/6281234567890" target="_blank"
+                                class="shrink-0 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30">
                                 Chat
                             </a>
                         </div>
@@ -431,7 +541,8 @@
             </div> <!-- End of Max W 1400px Wrapper -->
 
             <!-- Main Footer -->
-            <footer class="mt-12 text-center lg:text-left border-t border-gray-200/60 pt-6 pb-2 px-2 flex justify-between items-center text-gray-400">
+            <footer
+                class="mt-12 text-center lg:text-left border-t border-gray-200/60 pt-6 pb-2 px-2 flex justify-between items-center text-gray-400">
                 <span class="text-xs font-semibold tracking-wide">
                     &copy; {{ date('Y') }} Universitas Merdeka Malang.
                 </span>
@@ -444,50 +555,75 @@
     </div> <!-- End of Main Flex Content Wrapper -->
 
     <!-- Modal Detail Tiket -->
-    <div id="ticketDetailModal" class="fixed inset-0 z-[999] hidden overflow-y-auto" aria-labelledby="detail-modal-title" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeDetailModal()"></div>
+    <div id="ticketDetailModal" class="fixed inset-0 z-[999] hidden overflow-y-auto"
+        aria-labelledby="detail-modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeDetailModal()">
+        </div>
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-[2rem] bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 opacity-0 translate-y-4 duration-300" id="detailModalDialog">
+            <div class="relative transform overflow-hidden rounded-[2rem] bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 opacity-0 translate-y-4 duration-300"
+                id="detailModalDialog">
                 <div class="bg-white px-6 pb-6 pt-8 sm:p-8 sm:pb-6 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-unmerBlue to-blue-300"></div>
 
-                    <button onclick="closeDetailModal()" type="button" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-colors focus:outline-none">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <button onclick="closeDetailModal()" type="button"
+                        class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-colors focus:outline-none">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
                     </button>
 
                     <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-blue-50 sm:mx-0">
-                            <svg class="h-6 w-6 text-unmerBlue" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        <div
+                            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-blue-50 sm:mx-0">
+                            <svg class="h-6 w-6 text-unmerBlue" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
                         </div>
                         <div class="mt-4 text-center sm:ml-5 sm:mt-1 sm:text-left w-full">
-                            <h3 class="text-xl font-bold leading-6 text-gray-900 tracking-tight" id="detail-judul">Detail Tiket</h3>
+                            <h3 class="text-xl font-bold leading-6 text-gray-900 tracking-tight" id="detail-judul">
+                                Detail Tiket</h3>
                             <p class="text-sm text-gray-500 mt-1 font-mono tracking-wide" id="detail-nomor"></p>
 
                             <div class="mt-8 space-y-5 text-sm text-gray-700">
                                 <div>
-                                    <span class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Status Layanan</span>
+                                    <span
+                                        class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Status
+                                        Layanan</span>
                                     <div id="detail-status-container"></div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <span class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Kategori</span>
-                                        <p id="detail-kategori" class="font-bold text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-100 capitalize text-sm"></p>
+                                        <span
+                                            class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Kategori</span>
+                                        <p id="detail-kategori"
+                                            class="font-bold text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-100 capitalize text-sm">
+                                        </p>
                                     </div>
                                     <div>
-                                        <span class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Tanggal</span>
-                                        <p id="detail-tanggal" class="font-bold text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-100 text-sm"></p>
+                                        <span
+                                            class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Tanggal</span>
+                                        <p id="detail-tanggal"
+                                            class="font-bold text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-100 text-sm">
+                                        </p>
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Deskripsi Kendala</span>
-                                    <div id="detail-deskripsi" class="font-medium bg-gray-50 p-4 rounded-2xl border border-gray-100 whitespace-pre-wrap text-gray-700 text-sm leading-relaxed min-h-[100px]"></div>
+                                    <span
+                                        class="block font-bold text-gray-400 text-[10px] uppercase tracking-widest mb-2">Deskripsi
+                                        Kendala</span>
+                                    <div id="detail-deskripsi"
+                                        class="font-medium bg-gray-50 p-4 rounded-2xl border border-gray-100 whitespace-pre-wrap text-gray-700 text-sm leading-relaxed min-h-[100px]">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="bg-gray-50 px-6 py-5 sm:flex sm:flex-row-reverse rounded-b-[2rem] border-t border-gray-100">
-                    <button type="button" onclick="closeDetailModal()" class="w-full inline-flex justify-center rounded-xl border border-transparent bg-unmerBlue px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-unmerDark sm:ml-3 sm:w-auto transition-colors">
+                    <button type="button" onclick="closeDetailModal()"
+                        class="w-full inline-flex justify-center rounded-xl border border-transparent bg-unmerBlue px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-unmerDark sm:ml-3 sm:w-auto transition-colors">
                         Tutup Panel
                     </button>
                 </div>
@@ -496,35 +632,55 @@
     </div>
 
     <!-- Modal Buat Tiket -->
-    <div id="ticketModal" class="fixed inset-0 z-[999] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div id="ticketModal" class="fixed inset-0 z-[999] hidden overflow-y-auto" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-[2rem] bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 opacity-0 translate-y-4 duration-300" id="modalDialog">
+            <div class="relative transform overflow-hidden rounded-[2rem] bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 opacity-0 translate-y-4 duration-300"
+                id="modalDialog">
                 <div class="bg-white px-6 pb-6 pt-8 sm:p-8 sm:pb-6 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-unmerBlue to-blue-300"></div>
 
-                    <button onclick="closeModal()" type="button" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-colors focus:outline-none">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <button onclick="closeModal()" type="button"
+                        class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-colors focus:outline-none">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
                     </button>
 
                     <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-blue-50 sm:mx-0">
-                            <svg class="h-6 w-6 text-unmerBlue" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <div
+                            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-blue-50 sm:mx-0">
+                            <svg class="h-6 w-6 text-unmerBlue" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
                         </div>
                         <div class="mt-4 text-center sm:ml-5 sm:mt-1 sm:text-left w-full">
-                            <h3 class="text-xl font-bold leading-6 text-gray-900 tracking-tight" id="modal-title">Buat Tiket Baru</h3>
-                            <p class="text-sm text-gray-500 mt-2 font-medium">Beri tahu kami kendala atau kebutuhan layanan Anda.</p>
+                            <h3 class="text-xl font-bold leading-6 text-gray-900 tracking-tight" id="modal-title">Buat
+                                Tiket Baru</h3>
+                            <p class="text-sm text-gray-500 mt-2 font-medium">Beri tahu kami kendala atau kebutuhan
+                                layanan Anda.</p>
 
-                            <form id="ticketForm" class="mt-6 space-y-5" action="{{ route('tickets.store') }}" method="POST" enctype="multipart/form-data">
+                            <form id="ticketForm" class="mt-6 space-y-5" action="{{ route('tickets.store') }}"
+                                method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div>
-                                    <label for="judul" class="block text-xs font-bold text-gray-700 text-left mb-2 uppercase tracking-wide">Judul Topik</label>
-                                    <input type="text" name="judul" id="judul" required class="block w-full rounded-xl border-gray-200 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-3.5 bg-gray-50 focus:bg-white transition-colors" placeholder="Misal: Lupa Password E-learning">
+                                    <label for="judul"
+                                        class="block text-xs font-bold text-gray-700 text-left mb-2 uppercase tracking-wide">Judul
+                                        Topik</label>
+                                    <input type="text" name="judul" id="judul" required
+                                        class="block w-full rounded-xl border-gray-200 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-3.5 bg-gray-50 focus:bg-white transition-colors"
+                                        placeholder="Misal: Lupa Password E-learning">
                                 </div>
 
                                 <div>
-                                    <label for="kategori" class="block text-xs font-bold text-gray-700 text-left mb-2 uppercase tracking-wide">Kategori Layanan</label>
-                                    <select id="kategori" name="kategori" required class="block w-full rounded-xl border-gray-200 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-3.5 bg-gray-50 focus:bg-white transition-colors text-gray-700 font-medium">
+                                    <label for="kategori"
+                                        class="block text-xs font-bold text-gray-700 text-left mb-2 uppercase tracking-wide">Kategori
+                                        Layanan</label>
+                                    <select id="kategori" name="kategori" required
+                                        class="block w-full rounded-xl border-gray-200 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-3.5 bg-gray-50 focus:bg-white transition-colors text-gray-700 font-medium">
                                         <option value="" disabled selected>-- Pilih Kategori --</option>
                                         <option value="jaringan">Aduan Jaringan (WiFi/LAN)</option>
                                         <option value="akun">Akun Email Mahasiswa</option>
@@ -535,18 +691,24 @@
                                 </div>
 
                                 <div>
-                                    <label for="deskripsi" class="block text-xs font-bold text-gray-700 text-left mb-2 uppercase tracking-wide">Rincian Deskripsi</label>
-                                    <textarea id="deskripsi" name="deskripsi" rows="4" required class="block w-full rounded-xl border-gray-200 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-3.5 bg-gray-50 focus:bg-white transition-colors resize-none" placeholder="Jelaskan secara detail keluhan Anda..."></textarea>
+                                    <label for="deskripsi"
+                                        class="block text-xs font-bold text-gray-700 text-left mb-2 uppercase tracking-wide">Rincian
+                                        Deskripsi</label>
+                                    <textarea id="deskripsi" name="deskripsi" rows="4" required
+                                        class="block w-full rounded-xl border-gray-200 shadow-sm focus:border-unmerBlue focus:ring-unmerBlue sm:text-sm p-3.5 bg-gray-50 focus:bg-white transition-colors resize-none"
+                                        placeholder="Jelaskan secara detail keluhan Anda..."></textarea>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="bg-gray-50 px-6 py-5 sm:flex sm:flex-row-reverse rounded-b-[2rem] border-t border-gray-100">
-                    <button type="submit" form="ticketForm" class="btn-elegant w-full inline-flex justify-center rounded-xl border border-transparent px-8 py-3 text-sm font-bold text-white shadow-sm sm:ml-3 sm:w-auto">
+                    <button type="submit" form="ticketForm"
+                        class="btn-elegant w-full inline-flex justify-center rounded-xl border border-transparent px-8 py-3 text-sm font-bold text-white shadow-sm sm:ml-3 sm:w-auto">
                         Kirim Tiket
                     </button>
-                    <button type="button" onclick="closeModal()" class="mt-3 w-full inline-flex justify-center rounded-xl border border-gray-300 bg-white px-8 py-3 text-sm font-bold text-gray-700 shadow-sm hover:bg-gray-50 sm:mt-0 sm:w-auto transition-colors">
+                    <button type="button" onclick="closeModal()"
+                        class="mt-3 w-full inline-flex justify-center rounded-xl border border-gray-300 bg-white px-8 py-3 text-sm font-bold text-gray-700 shadow-sm hover:bg-gray-50 sm:mt-0 sm:w-auto transition-colors">
                         Batal
                     </button>
                 </div>
@@ -556,6 +718,32 @@
 
     <!-- Scripts -->
     <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+
+            if (dropdown.classList.contains('invisible')) {
+                dropdown.classList.remove('invisible', 'opacity-0', 'scale-95');
+                dropdown.classList.add('opacity-100', 'scale-100');
+            } else {
+                dropdown.classList.add('invisible', 'opacity-0', 'scale-95');
+                dropdown.classList.remove('opacity-100', 'scale-100');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            const dropdown = document.getElementById('profileDropdown');
+            if (!dropdown) return;
+            const button = dropdown.previousElementSibling;
+
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                if (!dropdown.classList.contains('invisible')) {
+                    dropdown.classList.add('invisible', 'opacity-0', 'scale-95');
+                    dropdown.classList.remove('opacity-100', 'scale-100');
+                }
+            }
+        });
+
         function openModal() {
             const modal = document.getElementById('ticketModal');
             const dialog = document.getElementById('modalDialog');
@@ -634,4 +822,5 @@
         }
     </script>
 </body>
+
 </html>
