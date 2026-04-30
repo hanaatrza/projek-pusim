@@ -98,15 +98,25 @@
         <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto custom-scrollbar">
             <p class="px-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-4">Navigasi Utama</p>
 
-            <a href="{{ url('/dashboard') }}"
+            <a href="#" onclick="switchTab('dashboard')" id="nav-dashboard"
                 class="flex items-center gap-3 px-3.5 py-3 text-unmerBlue bg-blue-50/80 rounded-xl transition-all font-bold shadow-sm border border-blue-100/50">
-                <div class="w-8 h-8 rounded-lg bg-unmerBlue text-white flex items-center justify-center shadow-inner">
+                <div class="w-8 h-8 rounded-lg bg-unmerBlue text-white flex items-center justify-center shadow-inner" id="icon-dashboard">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                             d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                     </svg>
                 </div>
                 Dashboard
+            </a>
+
+            <a href="#" onclick="switchTab('tiket')" id="nav-tiket"
+                class="flex items-center gap-3 px-3.5 py-3 text-gray-600 hover:text-unmerBlue hover:bg-blue-50/50 rounded-xl transition-all font-medium border border-transparent group">
+                <div class="w-8 h-8 rounded-lg bg-gray-50 text-gray-500 group-hover:bg-blue-100 group-hover:text-unmerBlue flex items-center justify-center transition-colors" id="icon-tiket">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                    </svg>
+                </div>
+                Tiket Baru
             </a>
         </nav>
 
@@ -222,6 +232,7 @@
                     </div>
                 @endif
 
+                <div id="content-dashboard" class="space-y-8">
                 <!-- Welcome Banner -->
                 <div
                     class="bg-gradient-to-br from-[#1c5e82] via-[#164a66] to-[#0f3d59] rounded-3xl shadow-[0_20px_40px_-15px_rgba(28,94,130,0.4)] p-8 md:p-12 text-white relative overflow-hidden animate-fade-in-up">
@@ -354,23 +365,54 @@
                     </a>
                 </div>
 
-                <!-- Main Data Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-up"
-                    style="animation-delay: 0.2s;">
+                <!-- Layout Component: Quick Access Menu -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
+                        <div class="px-6 py-6 border-b border-gray-100 bg-white/70">
+                            <h3 class="text-xl font-bold text-gray-900 tracking-tight">Akses Cepat</h3>
+                        </div>
 
-                    <!-- Recent Activity Table Component -->
-                    <div
-                        class="lg:col-span-2 glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
-                        <div
-                            class="px-7 py-6 border-b border-gray-100 bg-white/70 flex justify-between items-center z-10 sticky top-0">
+                        <div class="p-5 space-y-3 flex-grow">
+                            <a href="{{ route('profile.edit') }}" class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-white transition-all duration-300 border border-gray-100 hover:border-gray-200 group shadow-sm hover:shadow">
+                                <div class="w-12 h-12 shrink-0 bg-white rounded-xl text-gray-500 flex items-center justify-center shadow-sm group-hover:text-gray-800 transition-colors border border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-gray-900 text-sm transition-colors">Pengaturan Profil</h4>
+                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Perbarui data diri dan preferensi</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="px-6 py-5 mt-auto bg-emerald-50/80 flex items-center justify-between border-t border-emerald-100/50">
+                            <div>
+                                <h4 class="font-bold text-sm text-emerald-800 flex items-center gap-2">
+                                    <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span></span>
+                                    Live Support (WA)
+                                </h4>
+                                <p class="text-[10px] text-emerald-600 mt-1 font-medium">Bantuan darurat? Hubungi kami.</p>
+                            </div>
+                            <a href="https://wa.me/6281234567890" target="_blank" class="shrink-0 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30">Chat</a>
+                        </div>
+                    </div>
+                </div>
+
+                </div> <!-- End of content-dashboard -->
+
+                <div id="content-tiket" class="hidden space-y-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
+                        <div class="px-7 py-6 border-b border-gray-100 bg-white/70 flex justify-between items-center z-10 sticky top-0">
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 tracking-tight">Aktivitas Terkini</h3>
-                                <p class="text-xs text-gray-500 mt-1 font-medium">Riwayat Pengajuan Layanan Terakhir
-                                    Anda</p>
+                                <p class="text-xs text-gray-500 mt-1 font-medium">Riwayat Pengajuan Layanan Terakhir Anda</p>
                             </div>
-                            <a href="#"
-                                class="text-xs font-bold text-unmerBlue hover:text-white transition-colors bg-blue-50 hover:bg-unmerBlue px-4 py-2 rounded-lg border border-blue-100 shadow-sm">
-                                Lihat Semua
+                            <a href="#" onclick="openModal(); return false;" class="text-xs font-bold text-white transition-colors bg-unmerBlue hover:bg-unmerDark px-4 py-2 rounded-lg border border-blue-100 shadow-sm flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                                Buat Tiket Baru
                             </a>
                         </div>
 
@@ -466,77 +508,7 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Layout Component: Quick Access Menu -->
-                    <div class="glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
-                        <div class="px-6 py-6 border-b border-gray-100 bg-white/70">
-                            <h3 class="text-xl font-bold text-gray-900 tracking-tight">Akses Cepat</h3>
-                        </div>
-
-                        <div class="p-5 space-y-3 flex-grow">
-                            <!-- Menu 1 -->
-                            <a href="#" onclick="openModal(); return false;"
-                                class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-blue-50/80 transition-all duration-300 border border-gray-100 hover:border-blue-200 group shadow-sm hover:shadow-md">
-                                <div
-                                    class="w-12 h-12 shrink-0 bg-white rounded-xl text-unmerBlue flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform border border-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <h4
-                                        class="font-bold text-gray-900 text-sm group-hover:text-unmerBlue transition-colors">
-                                        Buat Tiket Baru</h4>
-                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Ajukan permohonan atau
-                                        infokan kendala</p>
-                                </div>
-                            </a>
-
-                            <!-- Menu 2 -->
-                            <a href="{{ route('profile.edit') }}"
-                                class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-white transition-all duration-300 border border-gray-100 hover:border-gray-200 group shadow-sm hover:shadow">
-                                <div
-                                    class="w-12 h-12 shrink-0 bg-white rounded-xl text-gray-500 flex items-center justify-center shadow-sm group-hover:text-gray-800 transition-colors border border-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-bold text-gray-900 text-sm transition-colors">Pengaturan Profil</h4>
-                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Perbarui data diri dan
-                                        preferensi</p>
-                                </div>
-                            </a>
-
-                        </div>
-
-                        <!-- Live Support Widget -->
-                        <div
-                            class="px-6 py-5 mt-auto bg-emerald-50/80 flex items-center justify-between border-t border-emerald-100/50">
-                            <div>
-                                <h4 class="font-bold text-sm text-emerald-800 flex items-center gap-2">
-                                    <span class="relative flex h-2.5 w-2.5">
-                                        <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                        <span
-                                            class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                                    </span>
-                                    Live Support (WA)
-                                </h4>
-                                <p class="text-[10px] text-emerald-600 mt-1 font-medium">Bantuan darurat? Hubungi kami.
-                                </p>
-                            </div>
-                            <a href="https://wa.me/6281234567890" target="_blank"
-                                class="shrink-0 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30">
-                                Chat
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </div> <!-- End of content-tiket -->
 
             </div> <!-- End of Max W 1400px Wrapper -->
 
@@ -743,6 +715,66 @@
                 }
             }
         });
+
+        function switchTab(tab) {
+            if(tab === 'dashboard') {
+                document.getElementById('content-dashboard').classList.remove('hidden');
+                document.getElementById('content-tiket').classList.add('hidden');
+                
+                document.getElementById('nav-dashboard').classList.add('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-dashboard').classList.remove('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-dashboard').classList.add('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-dashboard').classList.remove('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+                
+                document.getElementById('nav-tiket').classList.remove('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-tiket').classList.add('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-tiket').classList.remove('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-tiket').classList.add('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+            } else {
+                document.getElementById('content-dashboard').classList.add('hidden');
+                document.getElementById('content-tiket').classList.remove('hidden');
+                
+                document.getElementById('nav-tiket').classList.add('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-tiket').classList.remove('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-tiket').classList.add('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-tiket').classList.remove('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+                
+                document.getElementById('nav-dashboard').classList.remove('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-dashboard').classList.add('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-dashboard').classList.remove('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-dashboard').classList.add('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+            }
+        }
+
+        function switchTab(tab) {
+            if(tab === 'dashboard') {
+                document.getElementById('content-dashboard').classList.remove('hidden');
+                document.getElementById('content-tiket').classList.add('hidden');
+                
+                document.getElementById('nav-dashboard').classList.add('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-dashboard').classList.remove('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-dashboard').classList.add('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-dashboard').classList.remove('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+                
+                document.getElementById('nav-tiket').classList.remove('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-tiket').classList.add('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-tiket').classList.remove('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-tiket').classList.add('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+            } else {
+                document.getElementById('content-dashboard').classList.add('hidden');
+                document.getElementById('content-tiket').classList.remove('hidden');
+                
+                document.getElementById('nav-tiket').classList.add('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-tiket').classList.remove('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-tiket').classList.add('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-tiket').classList.remove('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+                
+                document.getElementById('nav-dashboard').classList.remove('text-unmerBlue', 'bg-blue-50/80', 'font-bold', 'shadow-sm', 'border-blue-100/50');
+                document.getElementById('nav-dashboard').classList.add('text-gray-600', 'hover:text-unmerBlue', 'hover:bg-blue-50/50', 'font-medium', 'border-transparent');
+                document.getElementById('icon-dashboard').classList.remove('bg-unmerBlue', 'text-white', 'shadow-inner');
+                document.getElementById('icon-dashboard').classList.add('bg-gray-50', 'text-gray-500', 'group-hover:bg-blue-100', 'group-hover:text-unmerBlue');
+            }
+        }
 
         function openModal() {
             const modal = document.getElementById('ticketModal');
