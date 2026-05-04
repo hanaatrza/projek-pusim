@@ -164,9 +164,7 @@
         <div
             class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
             <div class="flex items-center space-x-3 mb-3 md:mb-0">
-                <div
-                    class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black font-bold text-xs shadow-sm">
-                    P</div>
+                <img src="{{ asset('images/logo(1).png') }}" alt="Logo PUSIM" class="h-8 w-auto bg-white/90 rounded p-1 shadow-sm">
                 <span class="text-white font-semibold tracking-widest text-sm">PUSIM UNMER</span>
             </div>
             <div class="text-gray-400 text-xs font-medium tracking-wide flex flex-col md:flex-row gap-1 md:gap-4">

@@ -53,6 +53,9 @@ class ProfileController extends Controller
         // Simpan ke database
         $user->save();
 
-        return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui!');
+        return redirect()->route('dashboard')->with([
+            'success' => 'Profil berhasil diperbarui!',
+            'active_tab' => 'profil'
+        ]);
     }
 }
