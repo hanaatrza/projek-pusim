@@ -375,39 +375,7 @@
                     </a>
                 </div>
 
-                <!-- Layout Component: Quick Access Menu -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="glass-panel bg-white rounded-[2rem] overflow-hidden flex flex-col shadow-sm">
-                        <div class="px-6 py-6 border-b border-gray-100 bg-white/70">
-                            <h3 class="text-xl font-bold text-gray-900 tracking-tight">Akses Cepat</h3>
-                        </div>
 
-                        <div class="p-5 space-y-3 flex-grow">
-                            <a href="#" onclick="switchTab('profil'); return false;" class="flex items-center p-3 sm:p-4 rounded-2xl bg-gray-50 hover:bg-white transition-all duration-300 border border-gray-100 hover:border-gray-200 group shadow-sm hover:shadow">
-                                <div class="w-12 h-12 shrink-0 bg-white rounded-xl text-gray-500 flex items-center justify-center shadow-sm group-hover:text-gray-800 transition-colors border border-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-bold text-gray-900 text-sm transition-colors">Pengaturan Profil</h4>
-                                    <p class="text-[11px] text-gray-500 mt-1 leading-snug">Perbarui data diri dan preferensi</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="px-6 py-5 mt-auto bg-emerald-50/80 flex items-center justify-between border-t border-emerald-100/50">
-                            <div>
-                                <h4 class="font-bold text-sm text-emerald-800 flex items-center gap-2">
-                                    <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span></span>
-                                    Live Support (WA)
-                                </h4>
-                                <p class="text-[10px] text-emerald-600 mt-1 font-medium">Bantuan darurat? Hubungi kami.</p>
-                            </div>
-                            <a href="https://wa.me/6281234567890" target="_blank" class="shrink-0 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30">Chat</a>
-                        </div>
-                    </div>
-                </div>
 
                 </div> <!-- End of content-dashboard -->
 
